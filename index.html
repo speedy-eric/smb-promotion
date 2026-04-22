@@ -1,0 +1,1948 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NHN Cloud 크레딧 최대 5,400만원 — 스타트업 성장 지원 프로모션 | 스피디</title>
+<meta name="description" content="NHN Cloud가 스타트업에 최대 5,400만원 크레딧을 지원합니다. NHN Cloud 플래티넘 파트너 스피디가 신청부터 인프라 구축·운영까지 원스톱으로 도와드립니다.">
+<meta property="og:title" content="NHN Cloud 크레딧 최대 5,400만원 — 스타트업 성장 지원 프로모션">
+<meta property="og:description" content="NHN Cloud 플래티넘 파트너 스피디가 신청부터 구축까지 한 번에 도와드립니다.">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<style>
+  @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    /* Color Tokens — 인디고/퍼플 계통 중심 */
+    --bg: #ffffff;
+    --bg-alt: #f5f3ff;            /* 퍼플 톤 매우 옅음 */
+    --bg-soft: #eef2ff;           /* 인디고 매우 옅음 */
+    --bg-dark: #1a1147;           /* 짙은 인디고-퍼플 */
+    --bg-dark-alt: #211766;       /* 인디고 */
+
+    --text-main: #1e1b4b;         /* 인디고 다크 */
+    --text-sub: #4c1d95;          /* 보라 톤 다크 */
+    --text-light: #6b7280;
+    --text-muted: #9ca3af;
+
+    --primary: #4f46e5;            /* 인디고 */
+    --primary-dark: #4338ca;
+    --primary-darker: #3730a3;
+    --primary-light: #818cf8;
+    --primary-soft: #eef2ff;
+
+    --accent-purple: #8b5cf6;      /* 바이올렛 */
+    --accent-purple-light: #a78bfa;
+    --accent-blue: #6366f1;        /* 인디고-블루 */
+
+    --border: #e0e7ff;             /* 인디고 톤 보더 */
+    --border-light: #eef2ff;
+    --border-dark: rgba(255, 255, 255, 0.1);
+
+    --success: #10b981;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 2px 12px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.04);
+    --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.04);
+    --shadow-xl: 0 32px 64px rgba(0, 0, 0, 0.08), 0 8px 20px rgba(0, 0, 0, 0.04);
+
+    /* Radii */
+    --r-sm: 8px;
+    --r-md: 12px;
+    --r-lg: 16px;
+    --r-xl: 24px;
+
+    --font-display: 'Pretendard', 'Apple SD Gothic Neo', -apple-system, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-display);
+    line-height: 1.6;
+    color: var(--text-main);
+    background: var(--bg);
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+  a { color: var(--primary); text-decoration: none; }
+
+  /* ========== SCROLL REVEAL ========== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.08s; }
+  .reveal-delay-2 { transition-delay: 0.16s; }
+  .reveal-delay-3 { transition-delay: 0.24s; }
+  .reveal-delay-4 { transition-delay: 0.32s; }
+
+  /* ========== HERO (iframe용: 상단 140px로 프레이머 글로벌 네비 겹침 방지) ========== */
+  .hero {
+    background: linear-gradient(135deg, #1a1147 0%, #2a1b6e 35%, #4c1d95 70%, #5b21b6 100%);
+    color: #fff;
+    padding: 140px 0 120px;
+    position: relative;
+    overflow: hidden;
+  }
+  /* 인디고/퍼플 톤 두 개의 발광 오브 */
+  .hero::before {
+    content: '';
+    position: absolute;
+    width: 720px;
+    height: 720px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.45), transparent 70%);
+    top: -15%;
+    right: -10%;
+    filter: blur(90px);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    width: 580px;
+    height: 580px;
+    background: radial-gradient(circle, rgba(167, 139, 250, 0.35), transparent 70%);
+    bottom: -20%;
+    left: -10%;
+    filter: blur(90px);
+    pointer-events: none;
+  }
+  /* 은은한 그리드 */
+  .hero .grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse at center, #000 20%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 20%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1.1fr 480px;
+    gap: 64px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(167, 139, 250, 0.15);
+    color: #c4b5fd;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 28px;
+    border: 1px solid rgba(167, 139, 250, 0.3);
+    letter-spacing: 0.01em;
+  }
+  .hero-badge .dot {
+    width: 6px; height: 6px;
+    background: #c4b5fd;
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(196, 181, 253, 0.6);
+  }
+  .hero h1 {
+    font-size: 60px;
+    line-height: 1.1;
+    font-weight: 800;
+    margin-bottom: 24px;
+    letter-spacing: -0.03em;
+    color: #fff;
+  }
+  .hero h1 .accent-word {
+    background: linear-gradient(135deg, #a78bfa 0%, #c4b5fd 50%, #818cf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 900;
+  }
+  .hero p.lead {
+    font-size: 19px;
+    color: #c7d2fe;
+    margin-bottom: 40px;
+    line-height: 1.7;
+    max-width: 540px;
+    font-weight: 400;
+  }
+  .hero-cta-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    color: #fff;
+    padding: 16px 28px;
+    border-radius: var(--r-sm);
+    font-weight: 700;
+    font-size: 15.5px;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.35);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(139, 92, 246, 0.5);
+  }
+  .btn-primary svg { transition: transform 0.2s; }
+  .btn-primary:hover svg { transform: translateX(4px); }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    color: #fff;
+    padding: 16px 28px;
+    border-radius: var(--r-sm);
+    font-weight: 600;
+    font-size: 15.5px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: all 0.2s;
+    backdrop-filter: blur(8px);
+  }
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.22);
+    transform: translateY(-2px);
+  }
+
+  /* v3 Hero 우측 — 즉시 폼 카드 (Inline Form) */
+  .hero-form-card {
+    background: #fff;
+    border-radius: var(--r-xl);
+    padding: 36px 32px;
+    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.08);
+    position: relative;
+    z-index: 1;
+  }
+  .hero-form-card .form-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, #eef2ff, #f5f3ff);
+    color: var(--primary);
+    padding: 5px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    border: 1px solid var(--border);
+    letter-spacing: 0.05em;
+  }
+  .hero-form-card h3 {
+    color: var(--text-main);
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 6px;
+    letter-spacing: -0.02em;
+  }
+  .hero-form-card .form-amount {
+    color: var(--primary);
+    font-weight: 800;
+  }
+  .hero-form-card .form-sub {
+    color: var(--text-sub);
+    font-size: 14px;
+    margin-bottom: 24px;
+    line-height: 1.6;
+  }
+  .hero-form-card .form-row { margin-bottom: 14px; }
+  .hero-form-card label {
+    display: block;
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 13.5px;
+    margin-bottom: 6px;
+  }
+  .hero-form-card input,
+  .hero-form-card select {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    font-size: 14.5px;
+    font-family: inherit;
+    background: #fff;
+    color: var(--text-main);
+    transition: all 0.2s;
+  }
+  .hero-form-card input:focus,
+  .hero-form-card select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+  }
+  .hero-form-card .form-submit {
+    width: 100%;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent-purple) 100%);
+    color: #fff;
+    padding: 15px;
+    border: none;
+    border-radius: var(--r-sm);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.35);
+  }
+  .hero-form-card .form-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(139, 92, 246, 0.5);
+  }
+  .hero-form-card .form-trust {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 12.5px;
+    color: var(--text-light);
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .hero-form-card .form-trust span {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .hero-form-card .form-trust svg { color: var(--success); }
+
+  /* Hero 좌측 큰 숫자 영역 (간단한 3개 metric 표시) */
+  .hero-metrics {
+    display: flex;
+    gap: 32px;
+    margin-top: 36px;
+    flex-wrap: wrap;
+  }
+  .hero-metric {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .hero-metric .num {
+    font-size: 32px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #c4b5fd 0%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .hero-metric .label {
+    font-size: 12.5px;
+    color: #c7d2fe;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  /* 기존 hero-card는 v2 호환을 위해 남겨둠 (사용 안 함) */
+  .hero-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(167, 139, 250, 0.25);
+    border-radius: var(--r-xl);
+    padding: 44px 36px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 24px 80px rgba(99, 102, 241, 0.25);
+  }
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(167, 139, 250, 0.08) 100%);
+    border-radius: var(--r-xl);
+    pointer-events: none;
+  }
+  .hero-card .card-tag {
+    display: inline-block;
+    background: rgba(167, 139, 250, 0.15);
+    color: #c4b5fd;
+    padding: 5px 14px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 18px;
+    border: 1px solid rgba(167, 139, 250, 0.3);
+    text-transform: uppercase;
+  }
+  .hero-card .label {
+    font-size: 13px;
+    color: #c7d2fe;
+    margin-bottom: 4px;
+    letter-spacing: 0.02em;
+  }
+  .hero-card .amount {
+    font-size: 68px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #c4b5fd 0%, #a78bfa 50%, #818cf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin: 14px 0 8px;
+    letter-spacing: -0.04em;
+  }
+  .hero-card .unit { font-size: 16px; color: #e0e7ff; margin-bottom: 28px; font-weight: 500; }
+  .hero-card .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(167, 139, 250, 0.3), transparent);
+    margin: 28px 0;
+  }
+  .hero-card .sub-amount {
+    font-size: 30px;
+    font-weight: 800;
+    color: #fff;
+    margin: 6px 0;
+    letter-spacing: -0.02em;
+  }
+  .hero-card .sub-label { font-size: 13px; color: #c7d2fe; }
+
+  /* ========== TRUST STRIP ========== */
+  .trust-strip {
+    background: #211766;
+    padding: 28px 0;
+    border-top: 1px solid rgba(167, 139, 250, 0.15);
+  }
+  .trust-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 56px;
+    flex-wrap: wrap;
+    color: #c7d2fe;
+    font-size: 13.5px;
+    font-weight: 500;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .trust-item svg { color: #a78bfa; }
+
+  /* ========== SECTION 공통 ========== */
+  section { padding: 120px 0; position: relative; }
+  .section-head {
+    text-align: center;
+    margin-bottom: 72px;
+  }
+  .section-eyebrow {
+    display: inline-block;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    padding: 5px 14px;
+    background: var(--bg-soft);
+    border-radius: 999px;
+    border: 1px solid var(--border);
+  }
+  .section-head h2 .gradient {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent-purple) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .section-head h2 {
+    font-size: 44px;
+    font-weight: 800;
+    color: var(--text-main);
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    max-width: 820px;
+    margin: 0 auto;
+  }
+  .section-head p {
+    color: var(--text-sub);
+    font-size: 17px;
+    margin-top: 18px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+
+  /* ========== PAIN POINT ========== */
+  .pain { background: var(--bg-alt); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .pain-card {
+    background: #fff;
+    padding: 36px 32px;
+    border-radius: var(--r-lg);
+    border: 1px solid var(--border);
+    text-align: left;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .pain-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px rgba(99, 102, 241, 0.12);
+    border-color: var(--primary);
+  }
+  .pain-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--bg-soft), var(--bg-alt));
+    color: var(--primary);
+    border-radius: var(--r-md);
+    margin-bottom: 22px;
+    border: 1px solid var(--border);
+  }
+  .pain-card h3 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-main);
+    letter-spacing: -0.015em;
+  }
+  .pain-card p {
+    color: var(--text-sub);
+    font-size: 15.5px;
+    line-height: 1.65;
+  }
+
+  /* ========== CREDIT TRACKS ========== */
+  .tracks-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .track-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--r-xl);
+    padding: 44px 40px;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .track-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-xl);
+  }
+  .track-card.featured {
+    background: linear-gradient(180deg, #1e1b4b 0%, #4c1d95 100%);
+    color: #fff;
+    border-color: transparent;
+    position: relative;
+    box-shadow: 0 24px 60px rgba(99, 102, 241, 0.3);
+  }
+  .track-card.featured::before {
+    content: "추천";
+    position: absolute;
+    top: -12px;
+    right: 32px;
+    background: linear-gradient(135deg, #818cf8, #a78bfa);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 5px 16px;
+    border-radius: 999px;
+    letter-spacing: 0.02em;
+    box-shadow: 0 6px 20px rgba(167, 139, 250, 0.5);
+  }
+  .track-label {
+    font-size: 12.5px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .track-card .track-label { color: var(--text-light); }
+  .track-card.featured .track-label { color: #9ca3af; }
+  .track-amount {
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 1.05;
+    margin-bottom: 14px;
+    letter-spacing: -0.03em;
+  }
+  .track-card .track-amount {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent-purple) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .track-card.featured .track-amount {
+    background: linear-gradient(135deg, #c4b5fd 0%, #a78bfa 50%, #818cf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .track-desc {
+    font-size: 15px;
+    margin-bottom: 28px;
+    line-height: 1.7;
+  }
+  .track-card .track-desc { color: var(--text-sub); }
+  .track-card.featured .track-desc { color: #9ca3af; }
+  .track-list {
+    list-style: none;
+    padding-top: 28px;
+    border-top: 1px solid;
+  }
+  .track-card .track-list { border-color: var(--border); }
+  .track-card.featured .track-list { border-color: rgba(255, 255, 255, 0.12); }
+  .track-list li {
+    padding: 10px 0;
+    font-size: 15px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .track-card .track-list li { color: var(--text-main); }
+  .track-card.featured .track-list li { color: #e0e7ff; }
+  .track-list li svg { flex-shrink: 0; margin-top: 3px; color: var(--primary); }
+  .track-card.featured .track-list li svg { color: #c4b5fd; }
+
+  .compare-note {
+    margin-top: 36px;
+    padding: 20px 24px;
+    background: linear-gradient(90deg, var(--bg-soft) 0%, var(--bg-alt) 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    color: var(--text-main);
+    font-size: 15px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .compare-note svg { color: var(--primary); flex-shrink: 0; }
+
+  /* ========== BENEFITS ========== */
+  .benefits { background: var(--bg-alt); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .benefit-card {
+    background: #fff;
+    padding: 32px 24px;
+    border-radius: var(--r-lg);
+    border: 1px solid var(--border);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .benefit-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 40px rgba(99, 102, 241, 0.12);
+    border-color: var(--primary);
+  }
+  .benefit-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, var(--bg-soft), var(--bg-alt));
+    color: var(--primary);
+    border-radius: var(--r-md);
+    margin-bottom: 20px;
+    border: 1px solid var(--border);
+  }
+  .benefit-card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-main);
+    letter-spacing: -0.015em;
+  }
+  .benefit-card p {
+    color: var(--text-sub);
+    font-size: 14.5px;
+    line-height: 1.65;
+  }
+
+  /* ========== COMPARE TABLE ========== */
+  .compare-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--r-lg); }
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+  }
+  .compare-table th, .compare-table td {
+    padding: 20px 22px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 15px;
+  }
+  .compare-table th {
+    background: var(--bg-alt);
+    font-weight: 600;
+    color: var(--text-light);
+    font-size: 12.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .compare-table th.highlight-col {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent-purple) 100%);
+    color: #fff;
+  }
+  .compare-table td.highlight-col {
+    background: var(--bg-soft);
+    color: var(--primary-darker);
+    font-weight: 700;
+    border-left: 2px solid var(--primary);
+    border-right: 2px solid var(--primary);
+  }
+  .compare-table td { color: var(--text-sub); }
+  .compare-table tr:last-child td { border-bottom: none; }
+
+  /* ========== WHY SPEEDY (MSP 차별화) ========== */
+  .why-speedy { background: #fff; }
+  .why-speedy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 12px;
+  }
+  .why-speedy-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    padding: 36px 32px;
+    text-align: left;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  .why-speedy-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: linear-gradient(180deg, var(--primary) 0%, var(--accent-purple) 100%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .why-speedy-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(99, 102, 241, 0.12);
+    border-color: var(--primary);
+  }
+  .why-speedy-card:hover::before { opacity: 1; }
+  .why-speedy-number {
+    font-size: 48px;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent-purple) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: 6px;
+  }
+  .why-speedy-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .why-speedy-card h3 {
+    font-size: 19px;
+    font-weight: 800;
+    color: var(--text-main);
+    margin-bottom: 12px;
+    letter-spacing: -0.015em;
+    line-height: 1.35;
+  }
+  .why-speedy-card p {
+    font-size: 14.5px;
+    color: var(--text-sub);
+    line-height: 1.7;
+  }
+  .why-speedy-card p strong {
+    color: var(--primary-darker);
+    font-weight: 700;
+  }
+  .why-speedy-testimonials-head {
+    margin: 64px 0 20px;
+    text-align: center;
+  }
+  .why-speedy-testimonials-head .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    background: var(--bg-soft);
+    border-radius: 999px;
+    border: 1px solid var(--border);
+  }
+  .why-speedy-testimonials-head p {
+    font-size: 15px;
+    color: var(--text-sub);
+    margin-top: 14px;
+  }
+  .why-speedy-testimonials {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .testimonial-card {
+    background: linear-gradient(135deg, var(--bg-soft) 0%, var(--bg-alt) 100%);
+    border: 1px solid var(--border-light);
+    border-radius: var(--r-md);
+    padding: 30px 28px 26px;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .testimonial-card::before {
+    content: '\201C';
+    position: absolute;
+    top: 4px; left: 20px;
+    font-size: 60px;
+    color: var(--primary);
+    opacity: 0.2;
+    font-family: 'Georgia', serif;
+    line-height: 1;
+    pointer-events: none;
+  }
+  .testimonial-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: 0 14px 36px rgba(99, 102, 241, 0.12);
+  }
+  .testimonial-card blockquote {
+    font-size: 14.5px;
+    color: var(--text-main);
+    line-height: 1.75;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    margin-top: 18px;
+    margin-bottom: 22px;
+    position: relative;
+    z-index: 1;
+  }
+  .testimonial-card cite {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12.5px;
+    color: var(--text-sub);
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+  .testimonial-card cite::before {
+    content: '';
+    width: 20px;
+    height: 1px;
+    background: var(--primary);
+  }
+
+  /* ========== PROCESS ========== */
+  .process { background: var(--bg-alt); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .process-step {
+    background: #fff;
+    border-radius: var(--r-lg);
+    padding: 40px 32px;
+    text-align: left;
+    border: 1px solid var(--border);
+    transition: all 0.3s;
+  }
+  .process-step:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+  }
+  .process-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent-purple) 100%);
+    color: #fff;
+    border-radius: var(--r-md);
+    font-weight: 800;
+    font-size: 18px;
+    margin-bottom: 22px;
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.3);
+  }
+  .process-step h3 {
+    font-size: 21px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: var(--text-main);
+    letter-spacing: -0.015em;
+  }
+  .process-step p {
+    color: var(--text-sub);
+    font-size: 15px;
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+  .process-step .time {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    background: var(--bg-soft);
+    color: var(--primary);
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid var(--border);
+  }
+
+  /* ========== LEAD FORM ========== */
+  .lead-section {
+    background: linear-gradient(135deg, #1a1147 0%, #2a1b6e 50%, #4c1d95 100%);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .lead-section::before {
+    content: '';
+    position: absolute;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(167, 139, 250, 0.3), transparent 70%);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    filter: blur(100px);
+    pointer-events: none;
+  }
+  .lead-section .section-head { position: relative; z-index: 1; }
+  .lead-section .section-eyebrow {
+    background: rgba(167, 139, 250, 0.15);
+    color: #c4b5fd;
+    border-color: rgba(167, 139, 250, 0.3);
+  }
+  .lead-section .section-head h2 { color: #fff; }
+  .lead-section .section-head p { color: #c7d2fe; }
+  .lead-form-wrap {
+    max-width: 540px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: var(--r-xl);
+    padding: 44px 40px;
+    box-shadow: 0 32px 80px rgba(0, 0, 0, 0.4);
+    position: relative;
+    z-index: 1;
+  }
+  .lead-form-wrap h3 {
+    color: var(--text-main);
+    font-size: 24px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+  }
+  .lead-form-wrap .form-sub {
+    color: var(--text-sub);
+    text-align: center;
+    font-size: 14.5px;
+    margin-bottom: 32px;
+  }
+  .form-row { margin-bottom: 18px; }
+  .form-row label {
+    display: block;
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  .form-row input,
+  .form-row select {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    font-size: 15px;
+    font-family: inherit;
+    transition: all 0.2s;
+    background: #fff;
+    color: var(--text-main);
+  }
+  .form-row input:focus,
+  .form-row select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+  }
+  .form-submit {
+    width: 100%;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent-purple) 100%);
+    color: #fff;
+    padding: 16px;
+    border: none;
+    border-radius: var(--r-sm);
+    font-size: 15.5px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    letter-spacing: -0.01em;
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.35);
+  }
+  .form-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(139, 92, 246, 0.5);
+  }
+  .form-submit svg { transition: transform 0.2s; }
+  .form-submit:hover svg { transform: translateX(4px); }
+  .form-trust {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13px;
+    color: var(--text-light);
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .form-trust span { display: inline-flex; align-items: center; gap: 6px; }
+  .form-trust svg { color: var(--text-light); }
+
+  /* ========== FAQ ========== */
+  .faq-wrap { max-width: 820px; margin: 0 auto; }
+  .faq-item {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    margin-bottom: 12px;
+    overflow: hidden;
+    transition: all 0.3s;
+  }
+  .faq-item:hover { border-color: var(--primary-light); }
+  .faq-item.open {
+    border-color: var(--primary);
+    box-shadow: 0 8px 32px rgba(99, 102, 241, 0.1);
+  }
+  .faq-question {
+    padding: 22px 26px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    color: var(--text-main);
+    font-size: 16.5px;
+    user-select: none;
+    letter-spacing: -0.01em;
+    gap: 16px;
+  }
+  .faq-q-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--bg-soft);
+    color: var(--primary);
+    border-radius: 50%;
+    transition: all 0.3s;
+    flex-shrink: 0;
+  }
+  .faq-item.open .faq-q-icon {
+    background: linear-gradient(135deg, var(--primary), var(--accent-purple));
+    color: #fff;
+    transform: rotate(45deg);
+  }
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), padding 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 0 26px;
+    color: var(--text-sub);
+    font-size: 15px;
+    line-height: 1.75;
+  }
+  .faq-item.open .faq-answer { max-height: 420px; padding: 0 26px 24px; }
+
+  /* ========== FINAL CTA (iframe 마지막 섹션 — 하단 여백 확보) ========== */
+  .final-cta {
+    background: linear-gradient(135deg, #1a1147 0%, #2a1b6e 50%, #4c1d95 100%);
+    color: #fff;
+    text-align: center;
+    padding: 120px 0 160px;
+    position: relative;
+    overflow: hidden;
+  }
+  .final-cta::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(167, 139, 250, 0.25), transparent 60%);
+    pointer-events: none;
+    filter: blur(60px);
+  }
+  .final-cta .content { position: relative; z-index: 1; }
+  .final-cta h2 {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    letter-spacing: -0.03em;
+    color: #fff;
+  }
+  .final-cta p {
+    color: #9ca3af;
+    font-size: 18px;
+    margin-bottom: 40px;
+  }
+
+  /* ========== FOOTER ========== */
+  .footer {
+    background: #150c3b;
+    color: #a5b4fc;
+    padding: 48px 0;
+    font-size: 13.5px;
+    border-top: 1px solid rgba(167, 139, 250, 0.1);
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+    line-height: 1.8;
+  }
+  .footer a { color: #c7d2fe; margin-right: 20px; transition: color 0.2s; }
+  .footer a:hover { color: #fff; }
+
+  /* ========== CUSTOMER REFERENCES ========== */
+  .refs-section { background: var(--bg-alt); }
+  .refs-speedy-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: 24px; margin-bottom: 56px;
+  }
+  .refs-speedy-card {
+    background: #fff; border: 1px solid var(--border);
+    border-radius: var(--r-lg); padding: 36px 32px;
+    transition: transform .3s, box-shadow .3s, border-color .3s;
+    display: block; color: inherit; text-decoration: none;
+  }
+  .refs-speedy-card:hover {
+    transform: translateY(-4px); box-shadow: var(--shadow-lg);
+    border-color: var(--primary-light);
+  }
+  .refs-speedy-icon {
+    width: 52px; height: 52px; border-radius: 13px;
+    background: linear-gradient(135deg, var(--primary), var(--accent-purple));
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; margin-bottom: 18px;
+  }
+  .refs-speedy-tag {
+    display: inline-block;
+    background: var(--primary-soft); color: var(--primary-dark);
+    font-size: 12px; font-weight: 600;
+    padding: 5px 12px; border-radius: 999px;
+    margin-bottom: 14px; letter-spacing: 0.02em;
+  }
+  .refs-speedy-card h3 {
+    font-size: 20px; font-weight: 700;
+    color: var(--text-main); margin-bottom: 10px;
+    letter-spacing: -0.02em; line-height: 1.4;
+  }
+  .refs-speedy-card p {
+    font-size: 14.5px; color: var(--text-light);
+    margin-bottom: 18px; line-height: 1.65;
+  }
+  .refs-speedy-link {
+    color: var(--primary); font-size: 14px; font-weight: 600;
+    display: inline-flex; align-items: center; gap: 4px;
+  }
+  .refs-speedy-card:hover .refs-speedy-link { gap: 8px; }
+
+  .refs-nhn-wrap {
+    background: #fff; border: 1px solid var(--border);
+    border-radius: var(--r-xl); padding: 44px 40px;
+  }
+  .refs-nhn-title {
+    text-align: center; font-size: 15px;
+    color: var(--text-light); margin-bottom: 26px; font-weight: 500;
+  }
+  .refs-nhn-title strong { color: var(--text-main); font-weight: 700; font-size: 16.5px; }
+  .refs-nhn-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+  }
+  .refs-nhn-card {
+    background: #fff;
+    border: 1px solid var(--border); border-radius: var(--r-md);
+    overflow: hidden; cursor: pointer;
+    transition: transform .25s, box-shadow .25s, border-color .25s;
+    display: flex; flex-direction: column;
+  }
+  .refs-nhn-card:hover {
+    border-color: var(--primary); transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+  }
+  .refs-nhn-thumb {
+    position: relative; width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000 center/cover no-repeat;
+    overflow: hidden;
+  }
+  .refs-nhn-thumb::before {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.35) 100%);
+    transition: background .25s;
+  }
+  .refs-nhn-card:hover .refs-nhn-thumb::before {
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(79,70,229,0.4) 100%);
+  }
+  .refs-nhn-playbtn {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 56px; height: 56px; border-radius: 50%;
+    background: rgba(255,255,255,0.96);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    transition: transform .25s, background .25s;
+    z-index: 2;
+  }
+  .refs-nhn-card:hover .refs-nhn-playbtn {
+    transform: translate(-50%, -50%) scale(1.12);
+    background: #fff;
+  }
+  .refs-nhn-playbtn svg { width: 22px; height: 22px; fill: var(--primary); margin-left: 3px; }
+  .refs-nhn-meta { padding: 20px 22px 22px; }
+  .refs-nhn-industry {
+    font-size: 11.5px; color: var(--text-muted);
+    font-weight: 700; letter-spacing: 0.08em; margin-bottom: 6px;
+  }
+  .refs-nhn-company {
+    font-size: 17px; font-weight: 700; color: var(--text-main);
+    margin-bottom: 8px; letter-spacing: -0.015em;
+  }
+  .refs-nhn-point {
+    font-size: 13px; color: var(--text-sub);
+    line-height: 1.55; min-height: 42px;
+    letter-spacing: -0.03em; word-break: keep-all;
+  }
+  .refs-nhn-note {
+    text-align: center; margin-top: 20px;
+    font-size: 12px; color: var(--text-muted);
+  }
+
+  /* ========== MOBILE RESPONSIVE ========== */
+  @media (max-width: 1080px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+    .hero-form-card { max-width: 520px; margin: 0 auto; }
+  }
+  @media (max-width: 960px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+    .hero h1 { font-size: 40px; }
+    .hero p.lead { font-size: 17px; }
+    .hero-card .amount { font-size: 56px; }
+    .section-head h2 { font-size: 34px; }
+    .pain-grid, .tracks-grid, .benefits-grid, .process-grid, .why-speedy-grid, .why-speedy-testimonials {
+      grid-template-columns: 1fr;
+    }
+    .why-speedy-number { font-size: 40px; }
+    .testimonial-card { padding: 26px 24px 24px; }
+    .refs-speedy-grid { grid-template-columns: 1fr; }
+    .refs-nhn-grid { grid-template-columns: 1fr; }
+    .refs-nhn-wrap { padding: 36px 24px; }
+    .refs-nhn-point { min-height: auto; }
+    .trust-inner { gap: 24px; justify-content: flex-start; }
+    section { padding: 80px 0; }
+    .final-cta { padding: 80px 0; }
+    .final-cta h2 { font-size: 32px; }
+    .lead-form-wrap { padding: 36px 28px; }
+  }
+  @media (max-width: 640px) {
+    .hero { padding: 160px 0 72px; }
+    .hero h1 { font-size: 32px; }
+    .hero-card { padding: 32px 28px; }
+    .hero-card .amount { font-size: 46px; }
+    .btn-primary, .btn-secondary { padding: 14px 22px; font-size: 14.5px; }
+    .compare-table th, .compare-table td { padding: 14px 14px; font-size: 13px; }
+    .section-head h2 { font-size: 28px; }
+    .track-amount { font-size: 38px; }
+    .track-card { padding: 32px 26px; }
+    .final-cta h2 { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 스피디 글로벌 네비게이션 바(상단 fixed)가 있는 환경에 들어가는 페이지입니다.
+     별도 헤더는 두지 않고, Hero의 상단 padding으로 글로벌 nav가 가리지 않게 여백을 확보했습니다. -->
+
+<!-- ========== HERO (v3 — 좌측 텍스트+메트릭 / 우측 즉시 폼) ========== -->
+<section class="hero">
+  <div class="grid-bg"></div>
+  <div class="container hero-inner">
+    <!-- 좌측: 카피 + 핵심 메트릭 -->
+    <div>
+      <div class="hero-badge reveal">
+        <span class="dot"></span>
+        스타트업 지원 프로모션
+      </div>
+      <h1 class="reveal reveal-delay-1">
+        스타트업이라면<br>
+        <span class="accent-word">5,400만원</span> 크레딧,<br>
+        놓치지 마세요.
+      </h1>
+      <p class="lead reveal reveal-delay-2">
+        스피디가 크레딧 신청부터 인프라 설계·구축·운영까지 원스톱으로 지원합니다. <span style="opacity:0.75;font-size:0.92em">(CSP사의 플래티넘 파트너)</span>
+      </p>
+
+      <!-- 핵심 메트릭 3개 -->
+      <div class="hero-metrics reveal reveal-delay-3">
+        <div class="hero-metric">
+          <div class="num" data-count="5400">5,400</div>
+          <div class="label">최대 크레딧 (만원)</div>
+        </div>
+        <div class="hero-metric">
+          <div class="num">2주</div>
+          <div class="label">평균 셋업 기간</div>
+        </div>
+        <div class="hero-metric">
+          <div class="num">24h</div>
+          <div class="label">기술지원 응대</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 우측: 즉시 폼 -->
+    <div class="hero-form-card reveal reveal-delay-2">
+      <span class="form-eyebrow">⚡ 빠른 신청</span>
+      <h3>1분 무료 상담 신청</h3>
+      <p class="form-sub">
+        이메일과 회사명만 남겨주세요.<br>
+        24시간 이내 스피디 전담 컨설턴트가 직접 연락드립니다.
+      </p>
+      <form id="leadFormHero" data-utm-source="nhn_credit_lp_v3" data-utm-medium="landing" data-utm-campaign="smb_promotion">
+        <div class="form-row">
+          <label for="email-hero">이메일 주소 <span style="color:#ef4444">*</span></label>
+          <input type="email" id="email-hero" name="email" placeholder="contact@yourcompany.com" required>
+        </div>
+        <div class="form-row">
+          <label for="company-hero">회사 / 서비스명 <span style="color:#ef4444">*</span></label>
+          <input type="text" id="company-hero" name="company" placeholder="예: (주)스피디" required>
+        </div>
+        <div class="form-row">
+          <label for="cloud-hero">현재 사용 중인 클라우드 (선택)</label>
+          <select id="cloud-hero" name="current_cloud">
+            <option value="">선택해 주세요</option>
+            <option value="none">사용 안 함 / 검토 중</option>
+            <option value="aws">AWS</option>
+            <option value="azure">Azure</option>
+            <option value="gcp">Google Cloud</option>
+            <option value="nhn">NHN Cloud</option>
+            <option value="naver">네이버 클라우드</option>
+            <option value="kt">KT Cloud</option>
+            <option value="other">기타</option>
+          </select>
+        </div>
+        <button type="submit" class="form-submit">
+          무료 상담 신청하기
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+        <div class="form-trust">
+          <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>무료</span>
+          <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>24시간 회신</span>
+          <span><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>맞춤 진단</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TRUST STRIP ========== -->
+<div class="trust-strip">
+  <div class="container trust-inner">
+    <div class="trust-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      CSP Platinum Partner
+    </div>
+    <div class="trust-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+      ISMS-P · CSAP 인증
+    </div>
+    <div class="trust-item">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      24시간 이내 회신 · 한국어 기술지원
+    </div>
+  </div>
+</div>
+
+<!-- ========== PAIN POINT ========== -->
+<section class="pain">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow reveal">WHY NOW</div>
+      <h2 class="reveal reveal-delay-1">매달 청구서 확인이<br><span class="gradient">부담</span>이신가요?</h2>
+      <p class="reveal reveal-delay-2">
+        서비스 초기 스타트업이 공통적으로 겪는 클라우드 비용 문제, 크레딧으로 해결할 수 있습니다.
+      </p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card reveal">
+        <div class="pain-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3>달러 청구 + 환율 변동</h3>
+        <p>AWS·Azure는 달러 기준 청구. 환율이 오르면 청구서도 함께 치솟습니다.</p>
+      </div>
+      <div class="pain-card reveal reveal-delay-1">
+        <div class="pain-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>기술 인력 부재</h3>
+        <p>인프라 운영 담당자를 뽑기 전인데 장애는 밤낮을 가리지 않습니다.</p>
+      </div>
+      <div class="pain-card reveal reveal-delay-2">
+        <div class="pain-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <h3>GPU 한 대도 부담</h3>
+        <p>AI 추론용 GPU 한 대 돌리는 데도 한 달 수백만 원이 훅훅 나갑니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CREDIT TRACKS ========== -->
+<section id="tracks">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow reveal">CREDIT TRACKS</div>
+      <h2 class="reveal reveal-delay-1">회사 단계에 맞는<br><span class="gradient">트랙을 선택</span>하세요</h2>
+      <p class="reveal reveal-delay-2">
+        즉시 지급과 성장 연동 두 트랙 중 우리 서비스에 맞는 방식을 고르시면 됩니다.
+      </p>
+    </div>
+    <div class="tracks-grid">
+      <div class="track-card reveal">
+        <div class="track-label">트랙 A · 즉시 지급</div>
+        <div class="track-amount">1,000만원</div>
+        <div class="track-desc">
+          사용 전제 조건 없이 바로 지급되는 크레딧.<br>초기 PoC, 프로토타입 테스트에 적합합니다.
+        </div>
+        <ul class="track-list">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>가입 후 즉시 1,000만원 크레딧 지급</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>별도 사용량 조건 없음</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>서비스 기획·검증 단계에 최적</li>
+        </ul>
+      </div>
+      <div class="track-card featured reveal reveal-delay-1">
+        <div class="track-label">트랙 B · 성장 연동</div>
+        <div class="track-amount">최대 5,400만원</div>
+        <div class="track-desc">
+          클라우드 사용량이 늘어날수록 단계별 크레딧 추가 지급.<br>스케일업 단계 스타트업에 추천합니다.
+        </div>
+        <ul class="track-list">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>사용량에 따라 단계별 차등 지급</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>최대 5,400만원까지 누적 가능</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>빠른 성장 곡선 서비스에 적합</li>
+        </ul>
+      </div>
+    </div>
+    <div class="compare-note reveal">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      트랙 A와 B 중 하나만 선택 가능합니다. 우리 서비스 단계에 어느 쪽이 유리한지 스피디가 함께 진단해 드립니다.
+    </div>
+  </div>
+</section>
+
+<!-- ========== DIFFERENTIATOR (CSP 비교) ========== -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow reveal">CSP COMPARISON</div>
+      <h2 class="reveal reveal-delay-1">글로벌 CSP와<br><span class="gradient">무엇이 다를까요?</span></h2>
+      <p class="reveal reveal-delay-2">
+        원화 고정 크레딧에 MSP 파트너의 실제 구축·운영 지원까지 결합된 것이 차별점입니다.
+      </p>
+    </div>
+    <div class="compare-wrap reveal">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>비교 항목</th>
+            <th>AWS Activate</th>
+            <th>Microsoft for Startups</th>
+            <th class="highlight-col">스피디 클라우드</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>환율 리스크</strong></td>
+            <td>있음 (달러 결제)</td>
+            <td>있음 (달러 결제)</td>
+            <td class="highlight-col">없음 (원화 결제)</td>
+          </tr>
+          <tr>
+            <td><strong>한국어 기술지원</strong></td>
+            <td>제한적</td>
+            <td>제한적</td>
+            <td class="highlight-col">전담 팀 운영</td>
+          </tr>
+          <tr>
+            <td><strong>국내 데이터 주권 · 인증</strong></td>
+            <td>부분 지원</td>
+            <td>부분 지원</td>
+            <td class="highlight-col">ISMS-P · CSAP 보유</td>
+          </tr>
+          <tr>
+            <td><strong>MSP 운영 지원</strong></td>
+            <td>별도 비용·파트너 탐색 필요</td>
+            <td>별도 비용·파트너 탐색 필요</td>
+            <td class="highlight-col">크레딧 + 운영 원스톱</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="compare-note reveal">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+      크레딧 확보는 시작 단계에 불과합니다. 스피디는 7년 이상의 클라우드 운영 경험과 플래티넘 파트너 자격을 바탕으로, 인프라 설계부터 운영 안정화까지 전 과정을 책임집니다.
+    </div>
+  </div>
+</section>
+
+<!-- ========== WHY SPEEDY (MSP 차별화) ========== -->
+<section class="why-speedy">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow reveal">WHY SPEEDY</div>
+      <h2 class="reveal reveal-delay-1">크레딧은 같아도,<br><span class="gradient">결과는 파트너가 만듭니다</span></h2>
+      <p class="reveal reveal-delay-2">
+        같은 크레딧이라도 어느 MSP와 함께하느냐에 따라 결과는 달라집니다.<br>
+        스피디를 선택한 고객이 다시 스피디를 선택하는 이유, 수치와 증언으로 말씀드립니다.
+      </p>
+    </div>
+    <div class="why-speedy-grid">
+      <div class="why-speedy-card reveal">
+        <div class="why-speedy-number">2시간</div>
+        <div class="why-speedy-label">평균 회신 원칙</div>
+        <h3>질문에 빠르게 답하는 파트너</h3>
+        <p>
+          MSP 교체 기업의 <strong>67%가 '기술 지원 불만'을 1순위</strong>로 꼽습니다 (Gartner 2025 IT Outsourcing). 스피디는 평균 2시간 이내 회신을 원칙으로, 한국어 전담 엔지니어가 직접 대응합니다.
+        </p>
+      </div>
+      <div class="why-speedy-card reveal reveal-delay-1">
+        <div class="why-speedy-number">98%</div>
+        <div class="why-speedy-label">기존 고객 재계약률</div>
+        <h3>한번 맡기면,<br>계속 함께합니다</h3>
+        <p>
+          전담 컨설턴트가 1:1로 매칭되어 기술 지원과 영업이 한 팀처럼 움직입니다. 고객이 체감하는 <strong>'믿음이 가는 파트너'가 재계약률 98%</strong>로 증명됩니다.
+        </p>
+      </div>
+      <div class="why-speedy-card reveal reveal-delay-2">
+        <div class="why-speedy-number">7년+</div>
+        <div class="why-speedy-label">클라우드 운영 레퍼런스</div>
+        <h3>업종 불문,<br>안정적 운영 노하우</h3>
+        <p>
+          게임·교육·공공기관·미디어까지 전 업종에서 축적한 MSP 운영 경험. <strong>CSP 플래티넘 파트너 자격</strong>과 결합되어 설계·구축·운영 전 과정에서 안정성을 보장합니다.
+        </p>
+      </div>
+    </div>
+    <div class="why-speedy-testimonials-head reveal">
+      <span class="eyebrow">VOICE OF CUSTOMERS</span>
+      <p>스피디와 함께한 고객들이 직접 들려준 이야기</p>
+    </div>
+    <div class="why-speedy-testimonials">
+      <div class="testimonial-card reveal">
+        <blockquote>
+          클라우드 이관 2주 차에 DB 이슈가 터졌는데, 티켓 올린 지 30분 만에 담당 엔지니어가 직접 연결됐어요. 그때부터 '한번 믿고 맡기자'가 됐습니다.
+        </blockquote>
+        <cite>게임 스타트업 A사, 기술총괄</cite>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-1">
+        <blockquote>
+          3년째 재계약 중인데, 담당자가 바뀌지 않는 게 제일 편해요. 우리 서비스 히스토리를 아는 엔지니어가 계속 대응해 주니까 매번 처음부터 설명할 필요가 없습니다.
+        </blockquote>
+        <cite>교육 플랫폼 B사, 인프라 담당</cite>
+      </div>
+      <div class="testimonial-card reveal reveal-delay-2">
+        <blockquote>
+          문제가 나기 전에 먼저 연락이 와요. '이번 주 이 징후 선조치했습니다' 같은 월간 리포트를 받을 때마다, 공공 서비스 담당자로서 안심이 됩니다.
+        </blockquote>
+        <cite>공공기관 C, 정보화 담당관</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CUSTOMER REFERENCES ========== -->
+<section class="refs-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow reveal">CUSTOMER STORIES</div>
+      <h2 class="reveal reveal-delay-1">검증된 클라우드 인프라,<br><span class="gradient">스피디가 처음부터 끝까지 책임집니다</span></h2>
+      <p class="reveal reveal-delay-2">스피디 MSP 지원 사례와 국산 클라우드 검증 사례까지 —<br>업종을 가리지 않는 안정적 운영을 보여드립니다.</p>
+    </div>
+
+    <!-- 스피디 MSP 지원 사례 (상단 메인) -->
+    <div class="refs-speedy-grid">
+      <a href="https://www.speedykorea.com/resource/case-study/nhncloud-casestudy-globalgame" target="_blank" rel="noopener" class="refs-speedy-card reveal">
+        <div class="refs-speedy-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h.01"/><path d="M10 12h4"/><path d="M18 12h.01"/></svg>
+        </div>
+        <div class="refs-speedy-tag">스피디 MSP 지원 · 글로벌 게임사</div>
+        <h3>베어메탈에서 클라우드로<br>게임 인프라 전면 이관 — 스피디 MSP 함께</h3>
+        <p>클라우드 경험 제로에서 7대 게임 서버 풀 이관까지 — 스피디가 함께한 클라우드 전환 여정</p>
+        <span class="refs-speedy-link">자세히 보기 →</span>
+      </a>
+      <a href="https://www.speedykorea.com/resource/case-study/nhncloud-casestudy-educational-institution" target="_blank" rel="noopener" class="refs-speedy-card reveal reveal-delay-1">
+        <div class="refs-speedy-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
+        <div class="refs-speedy-tag">스피디 MSP 지원 · 교육기관</div>
+        <h3>교육기관 H사, 클라우드 경험 없이<br>온라인 플랫폼을 런칭한 방법</h3>
+        <p>운영 인력 부담 없이 안정적인 온라인 플랫폼 구축 — 스피디 MSP 원스톱 지원 사례</p>
+        <span class="refs-speedy-link">자세히 보기 →</span>
+      </a>
+    </div>
+
+    <!-- NHN Cloud 공식 레퍼런스 (하단 보조) -->
+    <div class="refs-nhn-wrap reveal">
+      <div class="refs-nhn-title"><strong>국내 대표 기업이 선택한 검증된 클라우드</strong><br>제조·건설·스타트업까지 — 업종을 가리지 않는 안정성</div>
+      <div class="refs-nhn-grid">
+        <div class="refs-nhn-card" data-video-id="Sat-rYSfyl0" role="button" tabindex="0" aria-label="HDC현대산업개발 영상 재생">
+          <div class="refs-nhn-thumb" style="background-image:url('https://img.youtube.com/vi/Sat-rYSfyl0/hqdefault.jpg');">
+            <div class="refs-nhn-playbtn" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="refs-nhn-meta">
+            <div class="refs-nhn-industry">건설 · 개발</div>
+            <div class="refs-nhn-company">HDC현대산업개발</div>
+            <div class="refs-nhn-point">IT비용 20% 절감에 성공한 대기업의 클라우드 선택</div>
+          </div>
+        </div>
+        <div class="refs-nhn-card" data-video-id="Mo22WNzJHsc" role="button" tabindex="0" aria-label="ATI 영상 재생">
+          <div class="refs-nhn-thumb" style="background-image:url('https://img.youtube.com/vi/Mo22WNzJHsc/hqdefault.jpg');">
+            <div class="refs-nhn-playbtn" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="refs-nhn-meta">
+            <div class="refs-nhn-industry">제조 · 반도체</div>
+            <div class="refs-nhn-company">ATI</div>
+            <div class="refs-nhn-point">업계 1위 반도체 검사 장비 제조사가 클라우드를 쓰는 이유</div>
+          </div>
+        </div>
+        <div class="refs-nhn-card" data-video-id="PoZG8vrgcSM" role="button" tabindex="0" aria-label="크레더 영상 재생">
+          <div class="refs-nhn-thumb" style="background-image:url('https://img.youtube.com/vi/PoZG8vrgcSM/hqdefault.jpg');">
+            <div class="refs-nhn-playbtn" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="refs-nhn-meta">
+            <div class="refs-nhn-industry">Web3 · 스타트업</div>
+            <div class="refs-nhn-company">크레더 (CREDER)</div>
+            <div class="refs-nhn-point">Web3 스타트업이 NHN Cloud를 선택한 이유</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PROCESS ========== -->
+<section class="process">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow reveal">HOW IT WORKS</div>
+      <h2 class="reveal reveal-delay-1">신청은 <span class="gradient">3단계</span>면<br>충분합니다</h2>
+      <p class="reveal reveal-delay-2">복잡한 서류 작업 없이, 이메일 한 번으로 시작할 수 있습니다.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step reveal">
+        <div class="process-number">1</div>
+        <h3>문의하기</h3>
+        <p>이메일과 회사명만 남기면 시작됩니다. 복잡한 가입 절차 없습니다.</p>
+        <span class="time">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          1분 소요
+        </span>
+      </div>
+      <div class="process-step reveal reveal-delay-1">
+        <div class="process-number">2</div>
+        <h3>무료 상담</h3>
+        <p>우리 서비스에 맞는 트랙과 인프라 구성을 함께 진단해 드립니다.</p>
+        <span class="time">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          30분 소요
+        </span>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="process-number">3</div>
+        <h3>크레딧 수령 + 구축</h3>
+        <p>스피디가 크레딧 신청부터 인프라 설계·구축까지 책임집니다.</p>
+        <span class="time">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          평균 2주
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== LEAD FORM ========== -->
+<section class="lead-section" id="lead-form">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow reveal">START NOW</div>
+      <h2 class="reveal reveal-delay-1">1분 안에<br>무료 상담 신청하기 <span style="background:linear-gradient(135deg,#a78bfa,#c4b5fd);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;"></span></h2>
+      <p class="reveal reveal-delay-2">
+        이메일과 회사명만 남겨주세요. 24시간 이내 스피디 담당자가 직접 연락드립니다.
+      </p>
+    </div>
+    <form class="lead-form-wrap reveal" id="leadForm" action="#" method="post"
+          data-utm-source="nhn_credit_lp" data-utm-medium="landing" data-utm-campaign="smb_promotion">
+      <h3>무료 상담 신청</h3>
+      <p class="form-sub">스피디 전담 컨설턴트가 직접 상담해 드립니다.</p>
+      <div class="form-row">
+        <label for="email">이메일 주소 <span style="color:#ef4444">*</span></label>
+        <input type="email" id="email" name="email" placeholder="contact@yourcompany.com" required>
+      </div>
+      <div class="form-row">
+        <label for="company">회사 / 서비스명 <span style="color:#ef4444">*</span></label>
+        <input type="text" id="company" name="company" placeholder="예: (주)스피디 / Speedy" required>
+      </div>
+      <div class="form-row">
+        <label for="current_cloud">현재 사용 중인 클라우드 (선택)</label>
+        <select id="current_cloud" name="current_cloud">
+          <option value="">선택해 주세요</option>
+          <option value="none">사용 안 함 / 검토 중</option>
+          <option value="aws">AWS</option>
+          <option value="azure">Azure</option>
+          <option value="gcp">Google Cloud</option>
+          <option value="nhn">NHN Cloud</option>
+          <option value="naver">네이버 클라우드</option>
+          <option value="kt">KT Cloud</option>
+          <option value="other">기타</option>
+        </select>
+      </div>
+      <button type="submit" class="form-submit">
+        무료 상담 신청하기
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </button>
+      <div class="form-trust">
+        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>무료 진단</span>
+        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>부담 없는 상담</span>
+        <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>24시간 회신</span>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ========== FAQ ========== -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="section-eyebrow reveal">FAQ</div>
+      <h2 class="reveal reveal-delay-1"><span class="gradient">자주 묻는</span> 질문</h2>
+    </div>
+    <div class="faq-wrap">
+      <div class="faq-item reveal">
+        <div class="faq-question">
+          어떤 스타트업이 신청 대상인가요?
+          <span class="faq-q-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          본 프로모션은 초기~스케일업 단계 스타트업을 대상으로 합니다. 업종·설립 시기별 세부 조건은 스피디 상담 과정에서 함께 확인해 드립니다.
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question">
+          크레딧은 어떤 서비스에 사용할 수 있나요?
+          <span class="faq-q-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          CSP사의 Compute, Storage, Network, 데이터베이스 등 대부분의 핵심 서비스에 사용 가능합니다. 일부 서비스(GPU, 알림 서비스, 라이선스 포함 서비스 등)는 제한될 수 있으므로 상담 시 정확히 안내해 드립니다.
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question">
+          현재 AWS나 Azure를 쓰고 있어도 신청 가능한가요?
+          <span class="faq-q-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          네, 가능합니다. 기존 클라우드 환경을 유지하면서 일부 워크로드만 해당 CSP로 이전하거나, 점진적 전환 로드맵을 함께 설계해 드립니다.
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question">
+          스피디 기술 지원 비용은 별도인가요?
+          <span class="faq-q-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          상담·진단·견적은 무료입니다. 실제 구축·운영 계약 조건은 서비스 규모에 따라 달라지며, CSP 플래티넘 파트너 할인 혜택을 함께 안내해 드립니다.
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question">
+          마감이 있나요? 선착순인가요?
+          <span class="faq-q-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          프로모션 예산은 한정되어 있으며, 조기 마감될 수 있습니다. 자세한 예산 소진 현황은 상담 시 실시간으로 안내해 드립니다.
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question">
+          GPU·AI 워크로드도 크레딧 적용이 가능한가요?
+          <span class="faq-q-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          GPU 인스턴스는 일부 프로모션에서 제외되거나 별도 조건이 적용될 수 있습니다. AI·ML 워크로드가 주력이라면 상담 시 적합한 구성(GPU + 일반 인프라 분할 전략 등)을 제안드립니다.
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question">
+          신청에 탈락하면 어떻게 되나요?
+          <span class="faq-q-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          혹시 이번 프로모션 조건에 맞지 않더라도, 스피디가 다른 스타트업 지원 프로그램(정부 GPU 지원사업, 아산 보이저, TIPS 등)과 연계 가능한 대안을 함께 안내드립니다.
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question">
+          프로모션 신청 후 크레딧 수령까지 얼마나 걸리나요?
+          <span class="faq-q-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+        </div>
+        <div class="faq-answer">
+          자격 확인 이후 보통 영업일 기준 3~7일 이내 크레딧이 지급됩니다. 스피디는 이후 인프라 설계·구축까지 평균 2주 내 셋업을 완료합니다.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FINAL CTA ========== -->
+<section class="final-cta">
+  <div class="container content">
+    <h2 class="reveal">크레딧은 선착순입니다<br>지금 신청하세요</h2>
+    <p class="reveal reveal-delay-1">무료 상담 · 부담 없는 진단 · 24시간 내 연락</p>
+    <a href="#lead-form" class="btn-primary reveal reveal-delay-2" style="font-size:16px; padding:18px 36px;">
+      지금 무료 상담 신청
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- 자체 FOOTER 제거 — 프레이머 글로벌 푸터가 대체 -->
+
+<!-- ========== JAVASCRIPT ========== -->
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  const numIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const target = parseInt(el.dataset.count, 10);
+      let current = 0;
+      const duration = 1400;
+      const startTime = performance.now();
+      const tick = (now) => {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        current = Math.floor(target * eased);
+        el.textContent = current.toLocaleString();
+        if (progress < 1) requestAnimationFrame(tick);
+        else el.textContent = target.toLocaleString();
+      };
+      requestAnimationFrame(tick);
+      numIO.unobserve(el);
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('[data-count]').forEach(el => numIO.observe(el));
+
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-question').addEventListener('click', () => {
+      item.classList.toggle('open');
+    });
+  });
+
+  // 공용 폼 제출 핸들러
+  function handleLeadSubmit(form) {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const data = new FormData(e.target);
+      const payload = Object.fromEntries(data.entries());
+      const urlParams = new URLSearchParams(location.search);
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(k => {
+        payload[k] = urlParams.get(k) || e.target.getAttribute('data-' + k.replace('_', '-')) || '';
+      });
+      console.log('리드 제출 데이터:', payload);
+      alert('신청이 완료되었습니다. 24시간 내에 담당자가 연락드리겠습니다.');
+      e.target.reset();
+    });
+  }
+  ['leadForm', 'leadFormHero'].forEach(id => {
+    const f = document.getElementById(id);
+    if (f) handleLeadSubmit(f);
+  });
+
+  /* ========== YouTube Facade — 클릭 시 새 탭으로 YouTube 이동 ========== */
+  function playVideo(card) {
+    const videoId = card.dataset.videoId;
+    if (!videoId) return;
+    window.open('https://www.youtube.com/watch?v=' + videoId, '_blank', 'noopener,noreferrer');
+  }
+  document.querySelectorAll('.refs-nhn-card').forEach(function (card) {
+    card.addEventListener('click', function () { playVideo(card); });
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); playVideo(card); }
+    });
+  });
+</script>
+
+</body>
+</html>
