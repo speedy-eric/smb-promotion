@@ -1987,6 +1987,29 @@
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); playVideo(card); }
     });
   });
+
+  /* ========== Auto-resize iframe via postMessage (부모 프레이머에 정확한 콘텐츠 높이 전달) ========== */
+  (function () {
+    if (window.parent === window) return; // iframe이 아니면 무시
+    function sendHeight() {
+      try {
+        var h = Math.max(
+          document.documentElement.scrollHeight,
+          document.body.scrollHeight,
+          document.documentElement.offsetHeight
+        );
+        parent.postMessage({ type: 'smbPromoResize', height: h }, '*');
+      } catch (e) {}
+    }
+    window.addEventListener('load', sendHeight);
+    window.addEventListener('resize', sendHeight);
+    if (typeof ResizeObserver !== 'undefined') {
+      new ResizeObserver(sendHeight).observe(document.body);
+    }
+    // FAQ 토글 등 동적 변화 대응
+    setTimeout(sendHeight, 500);
+    setTimeout(sendHeight, 1500);
+  })();
 </script>
 
 </body>
