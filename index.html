@@ -1338,15 +1338,24 @@
       margin-bottom: 4px;
     }
     .compare-table td.highlight-col {
-      background: var(--bg-soft);
-      color: var(--primary-darker);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent-purple) 100%);
+      color: #fff;
       font-weight: 700;
+      font-size: 15.5px;
+      padding: 18px 18px;
       border-left: none;
       border-right: none;
-      border-top: 2px solid var(--primary);
+      border-top: none;
+      position: relative;
     }
     .compare-table td.highlight-col::before {
-      color: var(--primary);
+      content: attr(data-label) " ✓";
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
     }
     .section-head h2 { font-size: 28px; }
     .track-amount { font-size: 38px; }
