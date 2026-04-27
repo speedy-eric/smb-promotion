@@ -1297,7 +1297,57 @@
     .hero-card { padding: 32px 28px; }
     .hero-card .amount { font-size: 46px; }
     .btn-primary, .btn-secondary { padding: 14px 22px; font-size: 14.5px; }
-    .compare-table th, .compare-table td { padding: 14px 14px; font-size: 13px; }
+    /* ========== 모바일 비교표: 카드형 레이아웃으로 변환 ========== */
+    .compare-wrap { border: none; overflow: visible; }
+    .compare-table { background: transparent; }
+    .compare-table thead { display: none; }
+    .compare-table tbody, .compare-table tr, .compare-table td { display: block; width: 100%; }
+    .compare-table tr {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+    .compare-table tr:last-child { margin-bottom: 0; }
+    .compare-table td {
+      padding: 14px 18px;
+      border: none;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 14.5px;
+      line-height: 1.5;
+    }
+    .compare-table td:last-child { border-bottom: none; }
+    .compare-table td:first-child {
+      background: linear-gradient(135deg, var(--bg-soft) 0%, var(--bg-alt) 100%);
+      font-size: 15px;
+      padding: 16px 18px;
+    }
+    .compare-table td:first-child strong {
+      color: var(--text-main);
+      font-weight: 800;
+    }
+    .compare-table td:not(:first-child)::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .compare-table td.highlight-col {
+      background: var(--bg-soft);
+      color: var(--primary-darker);
+      font-weight: 700;
+      border-left: none;
+      border-right: none;
+      border-top: 2px solid var(--primary);
+    }
+    .compare-table td.highlight-col::before {
+      color: var(--primary);
+    }
     .section-head h2 { font-size: 28px; }
     .track-amount { font-size: 38px; }
     .track-card { padding: 32px 26px; }
@@ -1510,28 +1560,28 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>환율 리스크</strong></td>
-            <td>있음 (달러 결제)</td>
-            <td>있음 (달러 결제)</td>
-            <td class="highlight-col">없음 (원화 결제)</td>
+            <td data-label="비교 항목"><strong>환율 리스크</strong></td>
+            <td data-label="AWS Activate">있음 (달러 결제)</td>
+            <td data-label="Microsoft for Startups">있음 (달러 결제)</td>
+            <td class="highlight-col" data-label="스피디 클라우드">없음 (원화 결제)</td>
           </tr>
           <tr>
-            <td><strong>한국어 기술지원</strong></td>
-            <td>제한적</td>
-            <td>제한적</td>
-            <td class="highlight-col">전담 팀 운영</td>
+            <td data-label="비교 항목"><strong>한국어 기술지원</strong></td>
+            <td data-label="AWS Activate">제한적</td>
+            <td data-label="Microsoft for Startups">제한적</td>
+            <td class="highlight-col" data-label="스피디 클라우드">전담 팀 운영</td>
           </tr>
           <tr>
-            <td><strong>국내 데이터 주권 · 인증</strong></td>
-            <td>부분 지원</td>
-            <td>부분 지원</td>
-            <td class="highlight-col">ISMS-P · CSAP 보유</td>
+            <td data-label="비교 항목"><strong>국내 데이터 주권 · 인증</strong></td>
+            <td data-label="AWS Activate">부분 지원</td>
+            <td data-label="Microsoft for Startups">부분 지원</td>
+            <td class="highlight-col" data-label="스피디 클라우드">ISMS-P · CSAP 보유</td>
           </tr>
           <tr>
-            <td><strong>MSP 운영 지원</strong></td>
-            <td>별도 비용·파트너 탐색 필요</td>
-            <td>별도 비용·파트너 탐색 필요</td>
-            <td class="highlight-col">크레딧 + 운영 원스톱</td>
+            <td data-label="비교 항목"><strong>MSP 운영 지원</strong></td>
+            <td data-label="AWS Activate">별도 비용·파트너 탐색 필요</td>
+            <td data-label="Microsoft for Startups">별도 비용·파트너 탐색 필요</td>
+            <td class="highlight-col" data-label="스피디 클라우드">크레딧 + 운영 원스톱</td>
           </tr>
         </tbody>
       </table>
