@@ -58,6 +58,7 @@
   }
 
   html { scroll-behavior: smooth; }
+  html, body { min-height: 100%; }
   body {
     font-family: var(--font-display);
     line-height: 1.6;
@@ -66,6 +67,15 @@
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  /* iframe 사이즈가 콘텐츠보다 클 때 남는 공간을 Final CTA 색상으로 자연스럽게 메움 */
+  .tail-bleed {
+    flex: 1 1 0;
+    min-height: 0;
+    background: linear-gradient(180deg, #4c1d95 0%, #2a1b6e 100%);
   }
 
   .container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
@@ -1868,6 +1878,9 @@
 </section>
 
 <!-- 자체 FOOTER 제거 — 프레이머 글로벌 푸터가 대체 -->
+
+<!-- iframe 잔여 공간 메우기 (Final CTA와 같은 톤의 그라데이션) -->
+<div class="tail-bleed" aria-hidden="true"></div>
 
 <!-- ========== JAVASCRIPT ========== -->
 <script>
