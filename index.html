@@ -686,6 +686,7 @@
     overflow: hidden;
     border: 1px solid var(--border);
     border-radius: var(--r-lg);
+    background: #fff;
   }
   .compare-table {
     width: 100%;
@@ -695,7 +696,7 @@
   .compare-table th, .compare-table td {
     padding: 20px 22px;
     text-align: left;
-    border-bottom: 1px solid var(--border-light);
+    border-bottom: 1px solid #EAECEF;
     font-size: 15px;
   }
   .compare-table th {
@@ -706,7 +707,7 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
   }
-  /* 첫 번째 컬럼: 카테고리 라벨로 시각 분리 */
+  /* 첫 번째 컬럼: 카테고리 라벨 — 헤더와 위계 구분 */
   .compare-table th:first-child,
   .compare-table td:first-child {
     background: var(--bg-alt);
@@ -715,20 +716,49 @@
   }
   .compare-table td:first-child {
     color: var(--text-main);
-    font-weight: 600;
+    font-weight: 700;
   }
-  .compare-table td:first-child strong { font-weight: 700; }
+  /* 가운데 비교 셀 */
+  .compare-table td:not(:first-child):not(.highlight-col) { color: var(--text-sub); }
+  /* 추천 컬럼: 카드형 부유 강조 */
   .compare-table th.highlight-col {
     background: var(--primary);
     color: #fff;
+    border-left: 1px solid var(--primary);
+    border-right: 1px solid var(--primary);
+    border-top: 1px solid var(--primary);
+    font-size: 13.5px;
+    letter-spacing: 0.04em;
+    padding: 22px 22px;
   }
   .compare-table td.highlight-col {
     background: var(--primary-soft);
     color: var(--primary-darker);
     font-weight: 700;
+    border-left: 1px solid var(--primary);
+    border-right: 1px solid var(--primary);
+    border-bottom: 1px solid rgba(22, 93, 245, 0.15);
+    position: relative;
+    padding-left: 44px;
   }
-  .compare-table td { color: var(--text-sub); }
+  /* 체크 아이콘 */
+  .compare-table td.highlight-col::before {
+    content: '';
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    background: var(--primary);
+    border-radius: 50%;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>");
+    background-size: 12px 12px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
   .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table tr:last-child td.highlight-col { border-bottom: 1px solid var(--primary); }
 
   /* ========== WHY SPEEDY (MSP 차별화) ========== */
   .why-speedy { background: var(--primary); position: relative; overflow: hidden; }
