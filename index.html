@@ -690,8 +690,7 @@
   }
   .compare-table {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
+    border-collapse: collapse;
     background: #fff;
   }
   .compare-table th, .compare-table td {
@@ -721,26 +720,19 @@
   }
   /* 가운데 비교 셀 */
   .compare-table td:not(:first-child):not(.highlight-col) { color: var(--text-sub); }
-  /* 추천 컬럼: 카드형 부유 강조 — 4면 보더 + 모서리 라운드 */
+  /* 추천 컬럼: 깔끔한 색상 강조 (보더·라운드 없이) */
   .compare-table th.highlight-col {
     background: var(--primary);
     color: #fff;
-    border-left: 1.5px solid var(--primary);
-    border-right: 1.5px solid var(--primary);
-    border-top: 1.5px solid var(--primary);
-    border-bottom: none;
-    border-top-left-radius: var(--r-md);
-    border-top-right-radius: var(--r-md);
     font-size: 13.5px;
     letter-spacing: 0.04em;
     padding: 22px 22px;
+    border-bottom: none;
   }
   .compare-table td.highlight-col {
     background: var(--primary-soft);
     color: var(--primary-darker);
     font-weight: 700;
-    border-left: 1.5px solid var(--primary);
-    border-right: 1.5px solid var(--primary);
     border-bottom: 1px solid rgba(22, 93, 245, 0.18);
     position: relative;
     padding-left: 44px;
@@ -762,12 +754,7 @@
     background-repeat: no-repeat;
   }
   .compare-table tr:last-child td { border-bottom: none; }
-  /* 추천 컬럼 마지막 셀: 하단 라운드 + 블루 마감 */
-  .compare-table tr:last-child td.highlight-col {
-    border-bottom: 1.5px solid var(--primary);
-    border-bottom-left-radius: var(--r-md);
-    border-bottom-right-radius: var(--r-md);
-  }
+  .compare-table tr:last-child td.highlight-col { border-bottom: none; }
 
   /* ========== WHY SPEEDY (MSP 차별화) ========== */
   .why-speedy { background: var(--primary); position: relative; overflow: hidden; }
