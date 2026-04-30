@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>OG Thumbnail</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    font-family: 'Pretendard Variable', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  .og {
+    width: 1200px;
+    height: 630px;
+    background: linear-gradient(135deg, #1a1147 0%, #2a1b6e 35%, #4c1d95 70%, #5b21b6 100%);
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 70px 90px;
+  }
+  /* 발광 오브 (디자인 톤) */
+  .og::before {
+    content: '';
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.45), transparent 70%);
+    top: -20%;
+    right: -10%;
+    filter: blur(80px);
+  }
+  .og::after {
+    content: '';
+    position: absolute;
+    width: 560px;
+    height: 560px;
+    background: radial-gradient(circle, rgba(167, 139, 250, 0.35), transparent 70%);
+    bottom: -30%;
+    left: -8%;
+    filter: blur(80px);
+  }
+  /* 그리드 패턴 */
+  .grid-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+
+  /* 상단: 브랜드 + 뱃지 */
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .brand-logo {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #a78bfa, #c4b5fd);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(167, 139, 250, 0.4);
+  }
+  .brand-name {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+  .badge {
+    background: rgba(167, 139, 250, 0.18);
+    border: 1.5px solid rgba(167, 139, 250, 0.4);
+    color: #c4b5fd;
+    padding: 12px 22px;
+    border-radius: 100px;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    backdrop-filter: blur(8px);
+  }
+
+  /* 중앙: 메인 카피 */
+  .main {
+    position: relative;
+    z-index: 1;
+  }
+  .lead {
+    font-size: 22px;
+    color: #c7d2fe;
+    font-weight: 600;
+    margin-bottom: 18px;
+    letter-spacing: -0.01em;
+  }
+  h1 {
+    font-size: 92px;
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    margin-bottom: 22px;
+  }
+  .accent {
+    background: linear-gradient(135deg, #a78bfa 0%, #c4b5fd 60%, #f0abfc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .sub {
+    font-size: 26px;
+    color: #e0e7ff;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  /* 하단: 메트릭 */
+  .metrics {
+    display: flex;
+    gap: 56px;
+    position: relative;
+    z-index: 1;
+  }
+  .metric {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .metric-num {
+    font-size: 38px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #c4b5fd 0%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .metric-label {
+    font-size: 14px;
+    color: #c7d2fe;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+</style>
+</head>
+<body>
+<div class="og">
+  <div class="grid-bg"></div>
+
+  <!-- 상단 -->
+  <div class="top">
+    <div class="brand">
+      <div class="brand-logo">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a1147" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+        </svg>
+      </div>
+      <div class="brand-name">Speedy</div>
+    </div>
+    <div class="badge">● 스타트업 지원 프로모션</div>
+  </div>
+
+  <!-- 메인 카피 -->
+  <div class="main">
+    <div class="lead">스타트업이라면 놓치지 마세요</div>
+    <h1>
+      <span class="accent">5,400만원</span> 크레딧,<br>
+      받을 수 있습니다
+    </h1>
+    <div class="sub">신청부터 인프라 구축·운영까지 원스톱 지원</div>
+  </div>
+
+  <!-- 하단 메트릭 -->
+  <div class="metrics">
+    <div class="metric">
+      <div class="metric-num">5,400</div>
+      <div class="metric-label">최대 크레딧 (만원)</div>
+    </div>
+    <div class="metric">
+      <div class="metric-num">2주</div>
+      <div class="metric-label">평균 셋업 기간</div>
+    </div>
+    <div class="metric">
+      <div class="metric-num">24h</div>
+      <div class="metric-label">기술지원 응대</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
