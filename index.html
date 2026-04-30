@@ -430,16 +430,16 @@
     align-items: center;
     gap: 56px;
     flex-wrap: wrap;
-    color: var(--text-light);
+    color: #ffffff;
     font-size: 13.5px;
-    font-weight: 500;
+    font-weight: 600;
   }
   .trust-item {
     display: flex;
     align-items: center;
     gap: 10px;
   }
-  .trust-item svg { color: var(--primary-light); }
+  .trust-item svg { color: #ffffff; opacity: 0.9; }
 
   /* ========== SECTION 공통 ========== */
   section { padding: 120px 0; position: relative; }
@@ -577,7 +577,7 @@
     text-transform: uppercase;
   }
   .track-card .track-label { color: var(--text-light); }
-  .track-card.featured .track-label { color: #9ca3af; }
+  .track-card.featured .track-label { color: rgba(255, 255, 255, 0.85); }
   .track-amount {
     font-size: 48px;
     font-weight: 900;
@@ -592,10 +592,9 @@
     background-clip: text;
   }
   .track-card.featured .track-amount {
-    background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-light) 50%, var(--primary-light) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #ffffff;
+    background: none;
+    -webkit-text-fill-color: #ffffff;
   }
   .track-desc {
     font-size: 15px;
@@ -603,7 +602,7 @@
     line-height: 1.7;
   }
   .track-card .track-desc { color: var(--text-sub); }
-  .track-card.featured .track-desc { color: #9ca3af; }
+  .track-card.featured .track-desc { color: rgba(255, 255, 255, 0.92); }
   .track-list {
     list-style: none;
     padding-top: 28px;
@@ -619,9 +618,9 @@
     gap: 12px;
   }
   .track-card .track-list li { color: var(--text-main); }
-  .track-card.featured .track-list li { color: var(--text-light); }
+  .track-card.featured .track-list li { color: rgba(255, 255, 255, 0.95); }
   .track-list li svg { flex-shrink: 0; margin-top: 3px; color: var(--primary); }
-  .track-card.featured .track-list li svg { color: var(--primary-light); }
+  .track-card.featured .track-list li svg { color: #ffffff; opacity: 0.9; }
 
   .compare-note {
     margin-top: 36px;
