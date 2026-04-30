@@ -706,6 +706,18 @@
     letter-spacing: 0.08em;
     text-transform: uppercase;
   }
+  /* 첫 번째 컬럼: 카테고리 라벨로 시각 분리 */
+  .compare-table th:first-child,
+  .compare-table td:first-child {
+    background: var(--bg-alt);
+    border-right: 1px solid var(--border);
+    width: 24%;
+  }
+  .compare-table td:first-child {
+    color: var(--text-main);
+    font-weight: 600;
+  }
+  .compare-table td:first-child strong { font-weight: 700; }
   .compare-table th.highlight-col {
     background: var(--primary);
     color: #fff;
