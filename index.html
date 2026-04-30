@@ -682,7 +682,11 @@
   }
 
   /* ========== COMPARE TABLE ========== */
-  .compare-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--r-lg); }
+  .compare-wrap {
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+  }
   .compare-table {
     width: 100%;
     border-collapse: collapse;
@@ -707,11 +711,9 @@
     color: #fff;
   }
   .compare-table td.highlight-col {
-    background: var(--bg-soft);
+    background: var(--primary-soft);
     color: var(--primary-darker);
     font-weight: 700;
-    border-left: 2px solid var(--primary);
-    border-right: 2px solid var(--primary);
   }
   .compare-table td { color: var(--text-sub); }
   .compare-table tr:last-child td { border-bottom: none; }
