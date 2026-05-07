@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>SA Extension C — 긴박감</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body {
+    width: 600px; height: 600px;
+    overflow: hidden;
+    font-family: 'Pretendard Variable', -apple-system, sans-serif;
+  }
+  .wrap {
+    width: 600px; height: 600px;
+    background: #ffffff;
+    color: #171717;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 50px 56px;
+  }
+  /* 우측 상단 비스듬한 블루 액센트 */
+  .accent {
+    position: absolute;
+    width: 600px; height: 600px;
+    background: linear-gradient(135deg, transparent 60%, rgba(22, 93, 245, 0.06) 60%, rgba(22, 93, 245, 0.12) 100%);
+    pointer-events: none;
+  }
+  /* 긴박감 뱃지 (좌상단) */
+  .urgency {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #165df5;
+    color: #fff;
+    padding: 11px 20px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 800;
+    align-self: flex-start;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 8px 20px rgba(22, 93, 245, 0.3);
+  }
+  .urgency::before {
+    content: '';
+    width: 8px; height: 8px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
+    animation: pulse 1.6s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3); }
+    50% { box-shadow: 0 0 0 6px rgba(255, 255, 255, 0); }
+  }
+  /* 메인 */
+  .main {
+    position: relative;
+    z-index: 1;
+  }
+  .lead {
+    font-size: 19px;
+    color: #4b5563;
+    font-weight: 600;
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+  h1 {
+    font-size: 88px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.045em;
+    color: #165df5;
+    margin-bottom: 14px;
+  }
+  .sub {
+    font-size: 24px;
+    color: #171717;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+  /* 자격 조건 칩 */
+  .conditions {
+    display: flex;
+    gap: 10px;
+    margin-top: 22px;
+    flex-wrap: wrap;
+  }
+  .chip {
+    background: #eff5ff;
+    color: #165df5;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    border: 1px solid rgba(22, 93, 245, 0.18);
+  }
+  /* 하단 */
+  .bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+  .speedy-logo {
+    height: 32px;
+    width: auto;
+  }
+  .cta {
+    background: #165df5;
+    color: #fff;
+    padding: 12px 22px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 800;
+    box-shadow: 0 6px 16px rgba(22, 93, 245, 0.3);
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="accent"></div>
+  <div class="urgency">선착순 마감 임박</div>
+  <div class="main">
+    <div class="lead">스타트업이라면 놓치지 마세요</div>
+    <h1>5,400만원</h1>
+    <div class="sub">NHN Cloud 크레딧 받기</div>
+    <div class="conditions">
+      <div class="chip">스타트업 한정</div>
+      <div class="chip">신청 1분</div>
+      <div class="chip">24시간 회신</div>
+    </div>
+  </div>
+  <div class="bottom">
+    <img src="speedy-logo-blue.png" alt="Speedy" class="speedy-logo">
+    <div class="cta">무료 상담 신청 →</div>
+  </div>
+</div>
+</body>
+</html>
