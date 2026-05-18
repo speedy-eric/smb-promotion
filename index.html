@@ -1530,7 +1530,7 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
         이메일과 회사명만 남겨주세요.<br>
         24시간 이내 스피디 전담 컨설턴트가 직접 연락드립니다.
       </p>
-      <form id="leadFormHero" data-utm-source="nhn_credit_lp_v3" data-utm-medium="landing" data-utm-campaign="smb_promotion">
+      <form id="leadFormHero">
         <div class="form-row">
           <label for="email-hero">이메일 주소 <span style="color:#ef4444">*</span></label>
           <input type="email" id="email-hero" name="email" placeholder="contact@yourcompany.com" required>
@@ -1909,8 +1909,7 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
         이메일과 회사명만 남겨주세요. 24시간 이내 스피디 담당자가 직접 연락드립니다.
       </p>
     </div>
-    <form class="lead-form-wrap reveal" id="leadForm" action="#" method="post"
-          data-utm-source="nhn_credit_lp" data-utm-medium="landing" data-utm-campaign="smb_promotion">
+    <form class="lead-form-wrap reveal" id="leadForm" action="#" method="post">
       <h3>무료 상담 신청</h3>
       <p class="form-sub">스피디 전담 컨설턴트가 직접 상담해 드립니다.</p>
       <div class="form-row">
@@ -2093,6 +2092,31 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
   // 리드 트래커 API 엔드포인트
   const LEAD_API = 'https://lead-tracker-api.speedykorea-eric.workers.dev/api/leads';
 
+  // 리퍼러 기반 source/medium 자동 분류 (URL UTM 없을 때 fallback)
+  function deriveSourceFromReferrer() {
+    const ref = document.referrer;
+    if (!ref) return { source: 'direct', medium: 'none' };
+    try {
+      const host = new URL(ref).hostname.toLowerCase();
+      if (host.includes('google.')) return { source: 'google', medium: 'organic' };
+      if (host.includes('naver.')) return { source: 'naver', medium: 'organic' };
+      if (host.includes('daum.') || host.includes('kakao.')) return { source: 'daum', medium: 'organic' };
+      if (host.includes('bing.')) return { source: 'bing', medium: 'organic' };
+      if (host.includes('yahoo.')) return { source: 'yahoo', medium: 'organic' };
+      if (host.includes('facebook.') || host.includes('fb.')) return { source: 'facebook', medium: 'social' };
+      if (host.includes('instagram.')) return { source: 'instagram', medium: 'social' };
+      if (host.includes('linkedin.')) return { source: 'linkedin', medium: 'social' };
+      if (host.includes('twitter.') || host.includes('x.com')) return { source: 'twitter', medium: 'social' };
+      if (host.includes('threads.')) return { source: 'threads', medium: 'social' };
+      if (host.includes('youtube.')) return { source: 'youtube', medium: 'social' };
+      if (host.includes('blog.naver.com')) return { source: 'naver_blog', medium: 'referral' };
+      if (host.includes('speedykorea.com')) return { source: 'speedykorea', medium: 'internal' };
+      return { source: host, medium: 'referral' }; // 외부 사이트
+    } catch (e) {
+      return { source: 'unknown', medium: 'none' };
+    }
+  }
+
   function handleLeadSubmit(form) {
     form.addEventListener('submit', async e => {
       e.preventDefault();
@@ -2106,23 +2130,23 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
       const data = new FormData(e.target);
       const fields = Object.fromEntries(data.entries());
       const urlParams = new URLSearchParams(location.search);
-
-      const getUtm = (key) =>
-        urlParams.get(key) ||
-        e.target.getAttribute('data-' + key.replace('_', '-')) || '';
+      const referrerInfo = deriveSourceFromReferrer();
 
       const payload = {
         company: fields.company || '',
         email: fields.email || '',
         plan: fields.current_cloud || '',
         message: 'SMB 프로모션 페이지 무료 상담 신청',
-        utm_source: getUtm('utm_source'),
-        utm_medium: getUtm('utm_medium'),
-        utm_campaign: getUtm('utm_campaign') || 'smb_promotion',
-        utm_term: getUtm('utm_term'),
-        utm_content: getUtm('utm_content'),
+        // URL UTM 우선, 없으면 referrer 기반 자동 분류 (폼 default fallback 제거)
+        utm_source: urlParams.get('utm_source') || referrerInfo.source,
+        utm_medium: urlParams.get('utm_medium') || referrerInfo.medium,
+        utm_campaign: urlParams.get('utm_campaign') || 'smb_promotion',
+        utm_term: urlParams.get('utm_term') || '',
+        utm_content: urlParams.get('utm_content') || '',
+        // 폼 위치는 별도 필드로 추적
+        form_id: e.target.id || 'unknown',
         referrer: document.referrer || '',
-        landing_page: document.referrer || location.href,
+        landing_page: location.href,  // 진짜 랜딩 URL
         form_page: location.pathname,
         visit_timestamp: new Date().toISOString(),
       };
