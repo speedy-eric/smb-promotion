@@ -2092,6 +2092,24 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
   // 리드 트래커 API 엔드포인트
   const LEAD_API = 'https://lead-tracker-api.speedykorea-eric.workers.dev/api/leads';
 
+  // 부모 페이지(Framer)로부터 first_referrer 수신 (postMessage)
+  window._firstReferrer = '';
+  window._firstLanding = '';
+  window._firstTime = '';
+  window.addEventListener('message', function(e) {
+    if (e.data && e.data.type === 'speedyFirstReferrer') {
+      window._firstReferrer = e.data.ref || '';
+      window._firstLanding = e.data.landing || '';
+      window._firstTime = e.data.time || '';
+    }
+  });
+  // 부모에게 첫 referrer 요청 (iframe 로드 후)
+  if (window.parent !== window) {
+    setTimeout(function() {
+      try { window.parent.postMessage({ type: 'speedyRequestFirstReferrer' }, '*'); } catch (e) {}
+    }, 500);
+  }
+
   // 리퍼러 기반 source/medium 자동 분류 (URL UTM 없을 때 fallback)
   function deriveSourceFromReferrer() {
     const ref = document.referrer;
@@ -2149,6 +2167,10 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
         landing_page: location.href,  // 진짜 랜딩 URL
         form_page: location.pathname,
         visit_timestamp: new Date().toISOString(),
+        // 첫 출처 추적 (부모 Framer에서 postMessage로 받음)
+        first_referrer: window._firstReferrer || '',
+        first_landing: window._firstLanding || '',
+        first_time: window._firstTime || '',
       };
 
       try {
