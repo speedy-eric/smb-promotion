@@ -2103,12 +2103,15 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
       window._firstTime = e.data.time || '';
     }
   });
-  // 부모에게 첫 referrer 요청 (iframe 로드 후)
-  if (window.parent !== window) {
-    setTimeout(function() {
-      try { window.parent.postMessage({ type: 'speedyRequestFirstReferrer' }, '*'); } catch (e) {}
-    }, 500);
+  // 부모에게 첫 referrer 요청 (여러 번 재시도 — Framer override 마운트 타이밍 대응)
+  function requestFirstReferrer() {
+    if (window.parent === window) return;
+    try { window.parent.postMessage({ type: 'speedyRequestFirstReferrer' }, '*'); } catch (e) {}
   }
+  setTimeout(requestFirstReferrer, 300);
+  setTimeout(requestFirstReferrer, 1000);
+  setTimeout(requestFirstReferrer, 2500);
+  setTimeout(requestFirstReferrer, 5000);
 
   // 리퍼러 기반 source/medium 자동 분류 (URL UTM 없을 때 fallback)
   function deriveSourceFromReferrer() {
