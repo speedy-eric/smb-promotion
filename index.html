@@ -2092,15 +2092,19 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
   // 리드 트래커 API 엔드포인트
   const LEAD_API = 'https://lead-tracker-api.speedykorea-eric.workers.dev/api/leads';
 
-  // 부모 페이지(Framer)로부터 first_referrer 수신 (postMessage)
+  // 부모 페이지(Framer)로부터 first_referrer + 부모 UTM 수신 (postMessage)
   window._firstReferrer = '';
   window._firstLanding = '';
   window._firstTime = '';
+  window._parentUtm = null;  // 부모 페이지 URL의 UTM (Google PMax 등)
+  window._parentUrl = '';
   window.addEventListener('message', function(e) {
     if (e.data && e.data.type === 'speedyFirstReferrer') {
       window._firstReferrer = e.data.ref || '';
       window._firstLanding = e.data.landing || '';
       window._firstTime = e.data.time || '';
+      window._parentUtm = e.data.parentUtm || null;
+      window._parentUrl = e.data.parentUrl || '';
     }
   });
   // 부모에게 첫 referrer 요청 (여러 번 재시도 — Framer override 마운트 타이밍 대응)
@@ -2152,18 +2156,24 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
       const fields = Object.fromEntries(data.entries());
       const urlParams = new URLSearchParams(location.search);
       const referrerInfo = deriveSourceFromReferrer();
+      const parentUtm = window._parentUtm || {};
+
+      // UTM 우선순위: (1) iframe URL → (2) 부모 페이지 URL (Google PMax 등) → (3) referrer 기반
+      const getUtm = (key, fallback) => {
+        return urlParams.get(key) || parentUtm[key] || fallback || '';
+      };
 
       const payload = {
         company: fields.company || '',
         email: fields.email || '',
         plan: fields.current_cloud || '',
         message: 'SMB 프로모션 페이지 무료 상담 신청',
-        // URL UTM 우선, 없으면 referrer 기반 자동 분류 (폼 default fallback 제거)
-        utm_source: urlParams.get('utm_source') || referrerInfo.source,
-        utm_medium: urlParams.get('utm_medium') || referrerInfo.medium,
-        utm_campaign: urlParams.get('utm_campaign') || 'smb_promotion',
-        utm_term: urlParams.get('utm_term') || '',
-        utm_content: urlParams.get('utm_content') || '',
+        // iframe URL → 부모 URL → referrer 자동분류 순서로 fallback
+        utm_source: getUtm('utm_source', referrerInfo.source),
+        utm_medium: getUtm('utm_medium', referrerInfo.medium),
+        utm_campaign: getUtm('utm_campaign', 'smb_promotion'),
+        utm_term: getUtm('utm_term', ''),
+        utm_content: getUtm('utm_content', ''),
         // 폼 위치는 별도 필드로 추적
         form_id: e.target.id || 'unknown',
         referrer: document.referrer || '',
