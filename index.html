@@ -2092,6 +2092,31 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
   // 리드 트래커 API 엔드포인트
   const LEAD_API = 'https://lead-tracker-api.speedykorea-eric.workers.dev/api/leads';
 
+  // 앵커 클릭 시 부모 페이지에게 스크롤 요청 (iframe 내부에선 #anchor 작동 안 함)
+  document.addEventListener('click', function(e) {
+    var target = e.target.closest('a[href^="#"]');
+    if (!target) return;
+    var hash = target.getAttribute('href');
+    if (!hash || hash === '#') return;
+    var elem = document.querySelector(hash);
+    if (!elem) return;
+    e.preventDefault();
+    // iframe 안인 경우 부모에게 스크롤 요청
+    if (window.parent !== window) {
+      try {
+        var rect = elem.getBoundingClientRect();
+        var offsetInIframe = rect.top + window.pageYOffset;
+        window.parent.postMessage({
+          type: 'speedyScrollToOffset',
+          offset: offsetInIframe,
+          iframeSrcMatch: 'smb-promotion'
+        }, '*');
+      } catch (err) {}
+    } else {
+      elem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+
   // 부모 페이지(Framer)로부터 first_referrer + 부모 UTM 수신 (postMessage)
   window._firstReferrer = '';
   window._firstLanding = '';
