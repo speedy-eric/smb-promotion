@@ -1541,6 +1541,11 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
           <input type="text" id="company-hero" name="company" placeholder="예: (주)스피디" required>
         </div>
         <div class="form-row">
+          <label for="phone-hero">연락처 (선택)</label>
+          <input type="tel" id="phone-hero" name="phone" placeholder="010-0000-0000" pattern="[0-9\-\s]{9,}">
+          <small style="display:block;margin-top:6px;font-size:12px;color:#6b7280">빠른 회신을 원하시면 입력해주세요 (24시간 내 통화 가능)</small>
+        </div>
+        <div class="form-row">
           <label for="cloud-hero">현재 사용 중인 클라우드 (선택)</label>
           <select id="cloud-hero" name="current_cloud">
             <option value="">선택해 주세요</option>
@@ -1922,6 +1927,11 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
         <input type="text" id="company" name="company" placeholder="예: (주)스피디 / Speedy" required>
       </div>
       <div class="form-row">
+        <label for="phone">연락처 (선택)</label>
+        <input type="tel" id="phone" name="phone" placeholder="010-0000-0000" pattern="[0-9\-\s]{9,}">
+        <small style="display:block;margin-top:6px;font-size:12px;color:#6b7280">빠른 회신을 원하시면 입력해주세요 (24시간 내 통화 가능)</small>
+      </div>
+      <div class="form-row">
         <label for="current_cloud">현재 사용 중인 클라우드 (선택)</label>
         <select id="current_cloud" name="current_cloud">
           <option value="">선택해 주세요</option>
@@ -2192,6 +2202,7 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
       const payload = {
         company: fields.company || '',
         email: fields.email || '',
+        phone: fields.phone || '',
         plan: fields.current_cloud || '',
         message: 'SMB 프로모션 페이지 무료 상담 신청',
         // iframe URL → 부모 URL → referrer 자동분류 순서로 fallback
