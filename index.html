@@ -2213,6 +2213,7 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
         phone: fields.phone || '',
         plan: fields.current_cloud || '',
         message: 'SMB 프로모션 페이지 무료 상담 신청',
+        privacy_consent: fields.privacy_consent === 'on',  // 개인정보 수집·이용 동의 여부 기록
         // iframe URL → 부모 URL → referrer 자동분류 순서로 fallback
         utm_source: getUtm('utm_source', referrerInfo.source),
         utm_medium: getUtm('utm_medium', referrerInfo.medium),
@@ -2229,6 +2230,11 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
         first_referrer: window._firstReferrer || '',
         first_landing: window._firstLanding || '',
         first_time: window._firstTime || '',
+        // 광고 클릭 ID (오프라인 전환 업로드용 — gclid/gbraid/wbraid=구글, fbclid=메타)
+        gclid: getUtm('gclid', ''),
+        gbraid: getUtm('gbraid', ''),
+        wbraid: getUtm('wbraid', ''),
+        fbclid: getUtm('fbclid', ''),
       };
 
       try {
