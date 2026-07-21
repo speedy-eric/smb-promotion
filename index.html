@@ -1559,6 +1559,9 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
             <option value="other">기타</option>
           </select>
         </div>
+        <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
+          <label>웹사이트<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+        </div>
         <label style="display:flex;align-items:flex-start;gap:8px;margin:0 0 14px;font-size:13px;color:#4b5563;line-height:1.5;cursor:pointer">
           <input type="checkbox" name="privacy_consent" required style="margin-top:2px;flex-shrink:0;width:16px;height:16px;cursor:pointer;accent-color:#165df5">
           <span>개인정보 수집 및 이용에 동의합니다. <a href="https://www.speedykorea.com/privacy" target="_blank" rel="noopener" style="color:#165df5;text-decoration:underline">[개인정보취급방침 전문보기]</a></span>
@@ -1949,6 +1952,9 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
           <option value="other">기타</option>
         </select>
       </div>
+      <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
+        <label>웹사이트<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
+      </div>
       <label style="display:flex;align-items:flex-start;gap:8px;margin:0 0 14px;font-size:13px;color:#4b5563;line-height:1.5;cursor:pointer">
         <input type="checkbox" name="privacy_consent" required style="margin-top:2px;flex-shrink:0;width:16px;height:16px;cursor:pointer;accent-color:#165df5">
         <span>개인정보 수집 및 이용에 동의합니다. <a href="https://www.speedykorea.com/privacy" target="_blank" rel="noopener" style="color:#165df5;text-decoration:underline">[개인정보취급방침 전문보기]</a></span>
@@ -2223,6 +2229,7 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
         plan: fields.current_cloud || '',
         message: 'SMB 프로모션 페이지 무료 상담 신청',
         privacy_consent: fields.privacy_consent === 'on',  // 개인정보 수집·이용 동의 여부 기록
+        website: fields.website || '',  // 허니팟 — 사람은 비워두고 봇만 채움(서버에서 차단)
         // iframe URL → 부모 URL → referrer 자동분류 순서로 fallback
         utm_source: getUtm('utm_source', referrerInfo.source),
         utm_medium: getUtm('utm_medium', referrerInfo.medium),
