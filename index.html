@@ -2207,6 +2207,15 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
         return urlParams.get(key) || parentUtm[key] || fallback || '';
       };
 
+      // 부모 페이지 URL(postMessage로 수신)의 쿼리스트링 — PMax는 부모 URL에 gclid를 붙이므로
+      // iframe URL에 없을 때 여기서 직접 파싱한다.
+      const parentUrlParams = (() => {
+        try { return new URLSearchParams(new URL(window._parentUrl || '').search); }
+        catch (e) { return new URLSearchParams(''); }
+      })();
+      // 광고 클릭 ID 우선순위: iframe URL → 부모 UTM 객체 → 부모 URL 쿼리스트링
+      const getClickId = (key) => urlParams.get(key) || parentUtm[key] || parentUrlParams.get(key) || '';
+
       const payload = {
         company: fields.company || '',
         email: fields.email || '',
@@ -2231,10 +2240,10 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
         first_landing: window._firstLanding || '',
         first_time: window._firstTime || '',
         // 광고 클릭 ID (오프라인 전환 업로드용 — gclid/gbraid/wbraid=구글, fbclid=메타)
-        gclid: getUtm('gclid', ''),
-        gbraid: getUtm('gbraid', ''),
-        wbraid: getUtm('wbraid', ''),
-        fbclid: getUtm('fbclid', ''),
+        gclid: getClickId('gclid'),
+        gbraid: getClickId('gbraid'),
+        wbraid: getClickId('wbraid'),
+        fbclid: getClickId('fbclid'),
       };
 
       try {
@@ -2250,6 +2259,15 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
 
         // GA4 전환 이벤트 발사 (Google Ads 전환 동기화용)
         if (typeof gtag === 'function') {
+          // 향상된 전환(리드) 매칭용 사용자 제공 데이터 — Google이 클라이언트에서 해시 처리
+          // 폼의 개인정보 수집·이용 동의를 받은 경우에만 전달
+          if (fields.privacy_consent === 'on') {
+            const phoneE164 = (fields.phone || '').replace(/[^0-9]/g, '').replace(/^0/, '+82');
+            gtag('set', 'user_data', {
+              email: (fields.email || '').trim().toLowerCase(),
+              phone_number: phoneE164.startsWith('+82') ? phoneE164 : '',
+            });
+          }
           gtag('event', 'generate_lead', {
             event_category: 'lead_form',
             event_label: 'smb_promotion',
