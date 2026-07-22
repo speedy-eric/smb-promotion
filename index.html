@@ -2264,8 +2264,13 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
           throw new Error(errBody.error || '서버 오류');
         }
 
+        const resData = await res.json().catch(() => ({}));
+        // 서버가 봇(허니팟)·중복·연속제출로 걸러낸 경우엔 전환 이벤트를 쏘지 않는다.
+        // 걸러진 제출이 전환으로 집계되면 구글·메타가 다시 봇을 학습하게 된다.
+        const filtered = !!resData.filtered;
+
         // GA4 전환 이벤트 발사 (Google Ads 전환 동기화용)
-        if (typeof gtag === 'function') {
+        if (!filtered && typeof gtag === 'function') {
           // 향상된 전환(리드) 매칭용 사용자 제공 데이터 — Google이 클라이언트에서 해시 처리
           // 폼의 개인정보 수집·이용 동의를 받은 경우에만 전달
           if (fields.privacy_consent === 'on') {
@@ -2290,13 +2295,15 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
         }
 
         // Meta Pixel Lead 이벤트 발사 (Meta 광고 최적화용)
-        if (typeof fbq === 'function') {
+        // eventID는 워커가 전환 API로 보내는 event_id와 동일하게 맞춘다.
+        // 같은 리드가 브라우저·서버 양쪽에서 들어와도 메타가 중복 제거한다.
+        if (!filtered && typeof fbq === 'function') {
           fbq('track', 'Lead', {
             content_name: 'NHN Cloud 5400만원 크레딧',
             content_category: 'B2B Cloud Lead',
             value: 100000,
             currency: 'KRW',
-          });
+          }, resData.id ? { eventID: 'lead-' + resData.id } : undefined);
         }
 
         alert('신청이 완료되었습니다. 24시간 내에 스피디 전담 컨설턴트가 연락드리겠습니다.');
