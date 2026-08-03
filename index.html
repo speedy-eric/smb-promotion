@@ -2318,6 +2318,17 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
           }
         }
 
+        // Criteo 전환(구매 태그) — 상담 완료 페이지가 없고 폼이 iframe에 있어,
+        // 폼 성공 시점에 부모(speedykorea.com)로 릴레이해 부모의 Criteo 로더가 발화한다.
+        // trackTransaction id는 리드 id로 중복 제거. 봇·중복(filtered)은 발화하지 않는다.
+        if (!filtered && window.self !== window.top) {
+          const criteoTxId = resData.id ? 'LEAD-' + resData.id : 'T-' + Date.now();
+          window.parent.postMessage({
+            type: 'speedy_criteo_lead',
+            txId: criteoTxId,
+          }, 'https://www.speedykorea.com');
+        }
+
         alert('신청이 완료되었습니다. 24시간 내에 스피디 전담 컨설턴트가 연락드리겠습니다.');
         e.target.reset();
       } catch (err) {
