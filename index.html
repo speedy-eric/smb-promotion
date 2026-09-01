@@ -2329,6 +2329,15 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
           }, 'https://www.speedykorea.com');
         }
 
+        // 네이버 전환추적 lead — 네이버는 유입 쿠키(NA_SA)를 1차 도메인에 심고,
+        // 전환 시점까지 1차 도메인이 바뀌지 않아야 집계된다. 이 iframe은 github.io라
+        // 여기서 wcs.trans를 부르면 쿠키가 매칭되지 않는다. 부모로 릴레이해 부모가 발화한다.
+        if (!filtered && window.self !== window.top) {
+          window.parent.postMessage({
+            type: 'speedy_naver_lead',
+          }, 'https://www.speedykorea.com');
+        }
+
         alert('신청이 완료되었습니다. 24시간 내에 스피디 전담 컨설턴트가 연락드리겠습니다.');
         e.target.reset();
       } catch (err) {
