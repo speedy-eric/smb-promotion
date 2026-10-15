@@ -113,6 +113,8 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
     transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .reveal.in { opacity: 1; transform: translateY(0); }
+  /* 첫 화면의 혜택·신청 폼은 관찰자/애니메이션 실행을 기다리지 않습니다. */
+  .hero .reveal { opacity: 1; transform: translateY(0); }
   .reveal-delay-1 { transition-delay: 0.08s; }
   .reveal-delay-2 { transition-delay: 0.16s; }
   .reveal-delay-3 { transition-delay: 0.24s; }
@@ -1369,6 +1371,11 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
     font-size: 12px; color: var(--text-muted);
   }
 
+  .optional-fields { margin: 0 0 18px; }
+  .optional-fields summary { cursor: pointer; color: var(--primary); font-size: 13px; font-weight: 600; padding: 10px 0; }
+  .optional-fields[open] summary { margin-bottom: 8px; }
+  .optional-fields summary:focus-visible { outline: 2px solid var(--primary); outline-offset: 4px; }
+
   /* ========== MOBILE RESPONSIVE ========== */
   @media (max-width: 1080px) {
     .hero-inner { grid-template-columns: 1fr; gap: 48px; }
@@ -1396,7 +1403,8 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
     .lead-form-wrap { padding: 36px 28px; }
   }
   @media (max-width: 640px) {
-    .hero { padding: 160px 0 72px; }
+    .hero { padding: 100px 0 56px; }
+    .hero-inner { gap: 28px; }
     .hero h1 { font-size: 32px; }
     .hero-card { padding: 32px 28px; }
     .hero-card .amount { font-size: 46px; }
@@ -1497,19 +1505,24 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
         <span class="dot"></span>
         스타트업 지원 프로모션
       </div>
-      <h1 class="reveal reveal-delay-1">
-        스타트업이라면<br>
-        <span class="accent-word">5,400만원</span> 크레딧,<br>
-        놓치지 마세요.
+      <p style="font-size:22px;font-weight:700;line-height:1.5;word-break:keep-all;margin:18px 0 12px">우리 회사도 지원 대상일까요?</p>
+      <h1 class="reveal reveal-delay-1" style="word-break:keep-all">
+        NHN Cloud 크레딧<br>
+        <span class="accent-word">최대 5,400만원</span>
       </h1>
-      <p class="lead reveal reveal-delay-2">
-        스피디가 크레딧 신청부터 인프라 설계·구축·운영까지<br>원스톱으로 지원합니다.
+      <p class="lead reveal reveal-delay-2" style="word-break:keep-all;margin-bottom:20px">
+        스피디가 크레딧 신청부터<br>인프라 설계·구축·운영까지 지원합니다.
       </p>
+      <p style="font-size:14px;line-height:1.7;color:var(--text-sub);margin:18px 0 20px;word-break:keep-all">
+        초기~스케일업 단계 스타트업 대상입니다. 지원 금액은 자격·사용량·선택 트랙에 따라 달라집니다.<br>
+        트랙 A·B 중 하나를 선택하며, GPU 등 일부 서비스는 적용이 제한될 수 있습니다.
+      </p>
+      <a href="#hero-consultation" class="btn-primary" style="font-size:15px;padding:15px 22px">지원 대상 확인하고 무료 상담하기 →</a>
 
       <!-- 핵심 메트릭 3개 -->
       <div class="hero-metrics reveal reveal-delay-3">
         <div class="hero-metric">
-          <div class="num" data-count="5400">5,400</div>
+          <div class="num">5,400</div>
           <div class="label">최대 크레딧 (만원)</div>
         </div>
         <div class="hero-metric">
@@ -1524,13 +1537,14 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
     </div>
 
     <!-- 우측: 즉시 폼 -->
-    <div class="hero-form-card reveal reveal-delay-2">
+    <div class="hero-form-card reveal reveal-delay-2" id="hero-consultation" style="scroll-margin-top:96px">
       <span class="form-eyebrow">⚡ 빠른 신청</span>
-      <h3>1분 무료 상담 신청</h3>
+      <h3>지원 대상·도입 무료 상담</h3>
       <p class="form-sub">
         이메일과 회사명만 남겨주세요.<br>
         24시간 이내 스피디 전담 컨설턴트가 직접 연락드립니다.
       </p>
+      <p style="font-size:12px;line-height:1.7;color:var(--text-muted);margin:0 0 18px;word-break:keep-all">문의 접수 → 자격·트랙 확인 → 도입 상담<br>상담·진단·견적은 무료이며, 구축·운영은 별도 계약 조건이 적용됩니다.</p>
       <form id="leadFormHero">
         <div class="form-row">
           <label for="email-hero">이메일 주소 <span style="color:#ef4444">*</span></label>
@@ -1540,6 +1554,8 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
           <label for="company-hero">회사 / 서비스명 <span style="color:#ef4444">*</span></label>
           <input type="text" id="company-hero" name="company" placeholder="예: (주)스피디" required>
         </div>
+        <details class="optional-fields">
+          <summary>연락처·사용 중인 클라우드 추가 (선택)</summary>
         <div class="form-row">
           <label for="phone-hero">연락처 (선택)</label>
           <input type="tel" id="phone-hero" name="phone" placeholder="010-0000-0000" pattern="[0-9\-\s]{9,}">
@@ -1559,6 +1575,7 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
             <option value="other">기타</option>
           </select>
         </div>
+        </details>
         <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
           <label>웹사이트<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
         </div>
@@ -1933,6 +1950,8 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
         <label for="company">회사 / 서비스명 <span style="color:#ef4444">*</span></label>
         <input type="text" id="company" name="company" placeholder="예: (주)스피디 / Speedy" required>
       </div>
+      <details class="optional-fields">
+        <summary>연락처·사용 중인 클라우드 추가 (선택)</summary>
       <div class="form-row">
         <label for="phone">연락처 (선택)</label>
         <input type="tel" id="phone" name="phone" placeholder="010-0000-0000" pattern="[0-9\-\s]{9,}">
@@ -1952,6 +1971,7 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
           <option value="other">기타</option>
         </select>
       </div>
+      </details>
       <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
         <label>웹사이트<input type="text" name="website" tabindex="-1" autocomplete="off"></label>
       </div>
