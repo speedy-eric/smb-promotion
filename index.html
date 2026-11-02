@@ -2187,8 +2187,16 @@ src="https://www.facebook.com/tr?id=1160958282722423&ev=PageView&noscript=1"
   window._firstTime = '';
   window._parentUtm = null;  // 부모 페이지 URL의 UTM (Google PMax 등)
   window._parentUrl = '';
+  window._parentLanding = '';
+  window._sourceReferrer = null;
+  window._trackingVersion = '';
   window.addEventListener('message', function(e) {
+    if (e.origin !== 'https://www.speedykorea.com' || e.source !== window.parent) return;
     if (e.data && e.data.type === 'speedyFirstReferrer') {
+      if (window._trackingVersion === '20261102.2' && e.data.trackingVersion !== '20261102.2') return;
+      window._trackingVersion = e.data.trackingVersion || '';
+      window._parentLanding = e.data.landingPage || e.data.parentUrl || '';
+      window._sourceReferrer = typeof e.data.sourceReferrer === 'string' ? e.data.sourceReferrer : null;
       window._firstReferrer = e.data.ref || '';
       window._firstLanding = e.data.landing || '';
       window._firstTime = e.data.time || '';
@@ -2417,8 +2425,8 @@ function showLeadQuestions(form, lead, api) {
         utm_content: getUtm('utm_content', ''),
         // 폼 위치는 별도 필드로 추적
         form_id: e.target.id || 'unknown',
-        referrer: document.referrer || '',
-        landing_page: location.href,  // 진짜 랜딩 URL
+        referrer: window._sourceReferrer !== null ? window._sourceReferrer : (document.referrer || ''),
+        landing_page: window._parentLanding || location.href,  // 광고 유입 페이지 (부모에서 전달)
         form_page: location.pathname,
         visit_timestamp: new Date().toISOString(),
         // 첫 출처 추적 (부모 Framer에서 postMessage로 받음)
